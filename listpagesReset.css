@@ -1,0 +1,14 @@
+/* 각자 기본 태그에 적용할 기본 style들 */
+
+a {
+  text-decoration: none;
+  color: black;
+}
+li {
+  list-style: none;
+}
+section {
+  width: 960px;
+  padding: 100px;
+  margin: 0 auto;
+}
