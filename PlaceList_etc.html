@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="listpagesReset.css"/>
     <link rel="stylesheet" href="headerStyle.css"/>
     <style>
-
     section div{
       float: left;
       padding: 0px 30px;
@@ -15,7 +14,7 @@
       width: 960px;
       margin: 0 auto;
       padding-top: 62px;
-      padding-left: 150px;
+      padding-left: 70px;
       border-bottom: red;
     }
     /* .nav-div{
@@ -25,6 +24,13 @@
       float: left;
       position: relative;
       background-color: rgba(220, 104, 10, 0.3);
+    }
+    .now-outer-menu-item{
+      float: left;
+      position: relative;
+      background-color: white;
+      color: rgb(220, 104, 10);
+      font-weight: bold;
     }
     .outer-menu-item:hover{
       background: rgb(220, 104, 10); color: white;
@@ -37,12 +43,19 @@
       padding: 5px 20px;
     }
     </style>
-    <script >
-    temp = location.href.split("?");
-    data=temp[1].split(":");
-    name = data[0];
-    content = data[1];
-    alert(name);
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var val = location.href.substr(
+                location.href.lastIndexOf('=') + 1
+            );
+        });
+        function sendValuetoStoreHtml(index) {
+         window.location.href = "PlaceList_store.html?district=" + index;
+       }
+       function sendValuetoCafeHtml(index) {
+        window.location.href = "PlaceList_cafe.html?district=" + index;
+       }
     </script>
   </head>
   <body>
@@ -61,13 +74,13 @@
       <div >
         <ul class="outer-menu">
           <li class="outer-menu-item">
-            <span class="menu-title">맛집</span>
+            <a onclick="sendValuetoStoreHtml(1)"><span class="menu-title">맛집</span></a>
           </li>
           <li class="outer-menu-item">
-            <span class="menu-title">카페</span>
+          <a onclick="sendValuetoCafeHtml(1)"><span class="menu-title">카페</span></a>
           </li>
-          <li class="outer-menu-item">
-            <span class="menu-title">기타</span>
+          <li class="now-outer-menu-item">
+            <span class="menu-title" id="nowCategory">기타</span>
           </li>
         </ul>
       </div>

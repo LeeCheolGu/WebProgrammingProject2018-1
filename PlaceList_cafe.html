@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WIGO-혼자서 갈수있는 장소!</title>
+    <link rel="stylesheet" href="listpagesReset.css"/>
+    <link rel="stylesheet" href="headerStyle.css"/>
+    <style>
+    section div{
+      float: left;
+      padding: 0px 30px;
+    }
+    .nav-div {
+      width: 960px;
+      margin: 0 auto;
+      padding-top: 62px;
+      padding-left: 70px;
+      border-bottom: red;
+    }
+
+    /* .nav-div{
+      border-bottom: 1px solid rgb(220, 104, 10);
+    } */
+    .outer-menu-item{
+      float: left;
+      position: relative;
+      background-color: rgba(220, 104, 10, 0.3);
+    }
+    .now-outer-menu-item{
+      float: left;
+      position: relative;
+      background-color: white;
+      color: rgb(220, 104, 10);
+      font-weight: bold;
+    }
+    .outer-menu-item:hover{
+      background: rgb(220, 104, 10); color: white;
+    }
+    .menu-title {
+      display: block;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      padding: 5px 20px;
+    }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var val = location.href.substr(
+                location.href.lastIndexOf('=') + 1
+            );
+        });
+        function sendValuetoStoreHtml(index) {
+         window.location.href = "PlaceList_store.html?district=" + index;
+       }
+       function sendValuetoETCHtml(index) {
+        window.location.href = "PlaceList_etc.html?district=" + index;
+       }
+    </script>
+  </head>
+  <body>
+    <!-- 1. 헤더 -->
+    <header id="header">
+        <form class="inputForm">
+          <input type="text" value="아이디" />
+          <input type="password" />
+          <input type="submit" value="로그인"/>
+        </form>
+      <a href="#"><img src="logo_wigo.png"  class="firstImage"/></a>
+      <img src="logo_whereigo.png"  class="secondImage"/>
+    </header>
+    <!-- 2. 내비게이션 바 -->
+    <nav class="nav-div">
+      <div >
+        <ul class="outer-menu">
+          <li class="outer-menu-item">
+            <a onclick="sendValuetoStoreHtml(1)"><span class="menu-title">맛집</span></a>
+          </li>
+          <li class="now-outer-menu-item">
+            <span class="menu-title" id="nowCategory">카페</span>
+          </li>
+          <li class="outer-menu-item">
+            <a onclick="sendValuetoETCHtml(1)"><span class="menu-title">기타</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- 3. 세션 -->
+    <section class="section">
+      <div id="place1">
+        <img src="http://placehold.it/360x240"/>
+        <h4> 둥산둥 </h4><br/><br/>
+      </div>
+
+      <div id="place2">
+        <img src="http://placehold.it/360x240"/>
+        <h4> 둥산둥 </h4><br/><br/>
+      </div>
+
+      <div id="place3">
+        <img src="http://placehold.it/360x240"/>
+        <h4> 둥산둥 </h4><br/><br/>
+      </div>
+
+      <div id="place4">
+        <img src="http://placehold.it/360x240"/>
+        <h4> 둥산둥 </h4><br/><br/>
+      </div>
+
+      <div id="place5">
+        <img src="http://placehold.it/360x240"/>
+        <h4> 둥산둥 </h4><br/><br/>
+      </div>
+
+      <div id="place6">
+        <img src="http://placehold.it/360x240"/>
+        <h4> 둥산둥 </h4><br/><br/>
+      </div>
+
+    </section>
+    <!-- 4. 바닥글 -->
+    <footer>
+    </footer>
+  </body>
+</html>
