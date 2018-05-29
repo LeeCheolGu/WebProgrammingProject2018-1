@@ -10,6 +10,10 @@
       float: left;
       padding: 0px 30px;
     }
+    img {
+      width: 360px;
+      height: 240px;
+    }
     .nav-div {
       width: 960px;
       margin: 0 auto;
@@ -48,13 +52,37 @@
             var val = location.href.substr(
                 location.href.lastIndexOf('=') + 1
             );
+            var img1 = document.getElementById("placeImage1");
+            var img2 = document.getElementById("placeImage2");
+            var img3 = document.getElementById("placeImage3");
+            var img4 = document.getElementById("placeImage4");
+            var img5 = document.getElementById("placeImage5");
+            alert(val);
+            if(val == 1){
+              img1.src="images/강동구/맛집/일국화/일국화1.jpg";
+              img2.src="images/강동구/맛집/참국/참국1.jpg";
+              img3.src="images/강동구/맛집/카레야상/카레야상1.jpg";
+              img4.src="images/강동구/맛집/테마라면/테마라면1.jpg";
+              img5.src="images/강동구/맛집/하루식당/하루식당1.jpg";
+
+            }
+            else if(val == 2){
+              img1.src="images/강북구/맛집/상미식당/상미식당1.jpg";
+              img2.src="images/강북구/맛집/올뜨레마레/올뜨레마레1.jpg";
+              img3.src="images/강북구/맛집/육수당/육수당1.jpg";
+              img4.src="images/강북구/맛집/음밥/음밥1.jpg";
+              img5.src="images/강북구/맛집/치킨주는쫄면/치킨주는쫄면1.jpg";
+            }
         });
+
         function sendValuetoETCHtml(index) {
          window.location.href = "PlaceList_etc.html?district" + index;
         }
         function sendValuetoCafeHtml(index) {
          window.location.href = "PlaceList_cafe.html?district=" + index;
         }
+
+
     </script>
   </head>
   <body>
@@ -89,43 +117,42 @@
     <section class="section">
       <a href="#">
       <div id="place1">
-        <img src="http://placehold.it/360x240"/>
+        <img id="placeImage1" src="http://placehold.it/360x240"/>
         <h4> 둥산둥 </h4><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place2">
-        <img src="http://placehold.it/360x240"/>
+        <img id="placeImage2" src="http://placehold.it/360x240"/>
         <h4> 둥산둥 </h4><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place3">
-        <img src="http://placehold.it/360x240"/>
+        <img id="placeImage3" src="http://placehold.it/360x240"/>
         <h4> 둥산둥 </h4><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place4">
-        <img src="http://placehold.it/360x240"/>
+        <img id="placeImage4" src="http://placehold.it/360x240"/>
         <h4> 둥산둥 </h4><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place5">
-        <img src="http://placehold.it/360x240"/>
+        <img id="placeImage5" />
         <h4> 둥산둥 </h4><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place6">
-        <img src="http://placehold.it/360x240"/>
-        <h4> 둥산둥 </h4><br/><br/>
+        <img id="placeImage6" />
       </div>
     </a>
 
