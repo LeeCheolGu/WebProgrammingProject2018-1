@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
  <head>
+   <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
   <script>
    function setChildValue(index) {
-    window.location.href = "PlaceList_store.html?gu=" + index;
+    localStorage.clear();
+    // window.location.href = "PlaceList_store.html?district=" + index;
+    localStorage.setItem("district", index);
    }
   </script>
  </head>
  <body>
-  <a onclick="setChildValue(1)">강동구</a>
+  <a href = "PlaceList_store.html" onclick="setChildValue(1)">강동구</a>
   <br/>
-  <a onclick="setChildValue(2)">강북구</a>
+  <a href = "PlaceList_store.html" onclick="setChildValue(2)">강북구</a>
  </body>
 </html>

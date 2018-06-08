@@ -1,43 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>WIGO-혼자서 갈수있는 장소!</title>
-    <link rel="stylesheet" href="listpagesReset.css"/>
-    <link rel="stylesheet" href="headerStyle.css"/>
-    <style>
-    section div{
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WIGO-혼자서 갈수있는 장소!</title>
+  <link rel="stylesheet" href="listpagesReset.css" />
+  <link rel="stylesheet" href="headerStyle.css" />
+  <style>
+    section div {
       float: left;
       padding: 0px 30px;
     }
+
     img {
       width: 360px;
       height: 240px;
     }
+
+    #starimage {
+      float: right;
+      width: 5%;
+      height: 5%;
+    }
+
+    #evaluate {
+      float: right;
+      padding-right: 10px;
+    }
+
+    .star {
+      float: left;
+    }
+
     .nav-div {
       width: 960px;
       margin: 0 auto;
       padding-top: 62px;
       padding-left: 70px;
     }
-    /* .nav-div{
-      border-bottom: 1px solid rgb(220, 104, 10);
-    } */
-    .outer-menu-item{
+
+    .outer-menu-item {
       float: left;
       position: relative;
       background-color: rgba(220, 104, 10, 0.3);
     }
-    .now-outer-menu-item{
+
+    .now-outer-menu-item {
       float: left;
       position: relative;
       background-color: white;
       color: rgb(220, 104, 10);
       font-weight: bold;
     }
-    .outer-menu-item:hover{
-      background: rgb(220, 104, 10); color: white;
+
+    .outer-menu-item:hover {
+      background: rgb(220, 104, 10);
+      color: white;
     }
+
     .menu-title {
       display: block;
       height: 30px;
@@ -45,120 +66,141 @@
       text-align: center;
       padding: 5px 20px;
     }
-    </style>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var val = location.href.substr(
-                location.href.lastIndexOf('=') + 1
-            );
-            var img1 = document.getElementById("placeImage1");
-            var img2 = document.getElementById("placeImage2");
-            var img3 = document.getElementById("placeImage3");
-            var img4 = document.getElementById("placeImage4");
-            var img5 = document.getElementById("placeImage5");
-            alert(val);
-            if(val == 1){
-              img1.src="images/강동구/맛집/일국화/일국화1.jpg";
-              img2.src="images/강동구/맛집/참국/참국1.jpg";
-              img3.src="images/강동구/맛집/카레야상/카레야상1.jpg";
-              img4.src="images/강동구/맛집/테마라면/테마라면1.jpg";
-              img5.src="images/강동구/맛집/하루식당/하루식당1.jpg";
+  </style>
+  <script src="storeData.js"></script>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    var district = localStorage.getItem("district");
+    obj = JSON.parse(jsonText);
+    $(document).ready(function() {
+      if (district == 1) {
+        $('#placeImage1').attr('src', 'images/강동구/맛집/일국화/4.jpg');
+        $('#placeImage2').attr('src', 'images/강동구/맛집/참국/4.jpg');
+        $('#placeImage3').attr('src', 'images/강동구/맛집/카레야상/4.jpg');
+        $('#placeImage4').attr('src', 'images/강동구/맛집/테마라면/5.jpg');
+        $('#placeImage5').attr('src', 'images/강동구/맛집/하루식당/3.jpg.jpg');
+        $('#placeImage6').css('display', 'none');
 
-            }
-            else if(val == 2){
-              img1.src="images/강북구/맛집/상미식당/상미식당1.jpg";
-              img2.src="images/강북구/맛집/올뜨레마레/올뜨레마레1.jpg";
-              img3.src="images/강북구/맛집/육수당/육수당1.jpg";
-              img4.src="images/강북구/맛집/음밥/음밥1.jpg";
-              img5.src="images/강북구/맛집/치킨주는쫄면/치킨주는쫄면1.jpg";
-            }
+      } else if (district == 2) {
+        $('#placeImage1').attr('src', 'images/강북구/맛집/상미식당/1.jpg');
+        $('#placeImage2').attr('src', 'images/강북구/맛집/올뜨레마레/1.jpg');
+        $('#placeImage3').attr('src', 'images/강북구/맛집/육수당/1.jpg');
+        $('#placeImage4').attr('src', 'images/강북구/맛집/음밥/1.jpg');
+        $('#placeImage5').attr('src', 'images/강북구/맛집/치킨주는쫄면/1.jpg');
+        $('#placeImage6').css('display', 'none');
+      }
+      $("#place1").hover(
+        function() {
+          $("#place1").addClass("hover");
+        },
+        function() {
+          $("#place1").removeClass("hover");
         });
+      $("#place1").hover(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      document.getElementById("placeName1").innerHTML = obj.district[district - 1].Name1;
+      document.getElementById("placeName2").innerHTML = obj.district[district - 1].Name2;
+      document.getElementById("placeName3").innerHTML = obj.district[district - 1].Name3;
+      document.getElementById("placeName4").innerHTML = obj.district[district - 1].Name4;
+      document.getElementById("placeName5").innerHTML = obj.district[district - 1].Name5;
+    });
 
-        function sendValuetoETCHtml(index) {
-         window.location.href = "PlaceList_etc.html?district" + index;
-        }
-        function sendValuetoCafeHtml(index) {
-         window.location.href = "PlaceList_cafe.html?district=" + index;
-        }
+  </script>
+</head>
 
+<body>
+  <!-- 1. 헤더 -->
+  <header id="header">
+    <form class="inputForm">
+      <input type="text" value="아이디" />
+      <input type="password" />
+      <input type="submit" value="로그인" />
+    </form>
+    <a href="#"><img src="logo_wigo.png"  class="firstImage"/></a>
+    <img src="logo_whereigo.png" class="secondImage" />
+  </header>
 
-    </script>
-  </head>
-  <body>
-    <!-- 1. 헤더 -->
-    <header id="header">
-        <form class="inputForm">
-          <input type="text" value="아이디" />
-          <input type="password" />
-          <input type="submit" value="로그인"/>
-        </form>
-      <a href="#"><img src="logo_wigo.png"  class="firstImage"/></a>
-      <img src="logo_whereigo.png"  class="secondImage"/>
-    </header>
-    <!-- 2. 내비게이션 바 -->
-    <nav class="nav-div">
-      <div >
-        <ul class="outer-menu">
-          <li class="now-outer-menu-item">
-            <span id="nowCategory" class="menu-title">맛집</span>
-          </li>
-          <li class="outer-menu-item">
-            <a onclick="sendValuetoCafeHtml(1)"><span class="menu-title">카페</span></a>
-          </li>
-          <li class="outer-menu-item">
-            <a onclick="sendValuetoETCHtml(1)"><span class="menu-title">기타</span></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <!-- 2. 내비게이션 바 -->
+  <nav class="nav-div">
+    <div>
+      <ul class="outer-menu">
+        <li class="now-outer-menu-item">
+          <span id="nowCategory" class="menu-title">맛집</span>
+        </li>
+        <li class="outer-menu-item">
+          <a href="PlaceList_cafe.html"><span class="menu-title">카페</span></a>
+        </li>
+        <li class="outer-menu-item">
+          <a href="PlaceList_etc.html"><span class="menu-title">기타</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- 3. 세션 -->
-    <section class="section">
-      <a href="#">
+  <!-- 3. 세션 -->
+  <section class="section">
+    <a href="#">
       <div id="place1">
-        <img id="placeImage1" src="http://placehold.it/360x240"/>
-        <h4> 둥산둥 </h4><br/><br/>
+        <img id="placeImage1" /><br/><br/>
+        <h4 id="placeName1" class="star"> 둥산둥 </h4>
+        <img src="empty.png" id="starimage" class="star"></img>
+        <p class="star" id="evaluate">0.0</p>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place2">
-        <img id="placeImage2" src="http://placehold.it/360x240"/>
-        <h4> 둥산둥 </h4><br/><br/>
+        <img id="placeImage2" /><br/><br/>
+        <h4 id="placeName2" class="star"> 둥산둥 </h4>
+        <img src="fullStar.png" id="starimage" class="star"></img>
+        <p class="star" id="evaluate">4.2</p>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place3">
-        <img id="placeImage3" src="http://placehold.it/360x240"/>
-        <h4> 둥산둥 </h4><br/><br/>
+        <img id="placeImage3" /><br/><br/>
+        <h4 id="placeName3" class="star"> 둥산둥 </h4>
+        <img src="empty.png" id="starimage" class="star"></img>
+        <p class="star" id="evaluate">0.0</p>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place4">
-        <img id="placeImage4" src="http://placehold.it/360x240"/>
-        <h4> 둥산둥 </h4><br/><br/>
+        <img id="placeImage4" /><br/><br/>
+        <h4 id="placeName4" class="star"> 둥산둥 </h4>
+        <img src="fullStar.png" id="starimage" class="star"></img>
+        <p class="star" id="evaluate">4.0</p>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place5">
-        <img id="placeImage5" />
-        <h4> 둥산둥 </h4><br/><br/>
+        <img id="placeImage5" /><br/><br/>
+        <h4 id="placeName5" class="star"> 둥산둥 </h4>
+        <img src="empty.png" id="starimage" class="star"></img>
+        <p class="star" id="evaluate">0.0</p>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place6">
-        <img id="placeImage6" />
+        <!-- <img id="placeImage6" /><br/><br/>
+        <h4 id="placeName6"></h4> -->
       </div>
     </a>
 
-    </section>
-    <!-- 4. 바닥글 -->
-    <footer>
-    </footer>
-  </body>
+  </section>
+  <!-- 4. 바닥글 -->
+  <footer>
+  </footer>
+</body>
+
 </html>
