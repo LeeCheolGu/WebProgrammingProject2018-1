@@ -1,18 +1,74 @@
 <!DOCTYPE html>
 <html>
- <head>
-   <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
+
+<head>
+  <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script>
-   function setChildValue(index) {
-    localStorage.clear();
-    // window.location.href = "PlaceList_store.html?district=" + index;
-    localStorage.setItem("district", index);
-   }
+    function setChildValue(index) {
+      localStorage.clear();
+      // window.location.href = "PlaceList_store.html?district=" + index;
+      localStorage.setItem("district", index);
+    }
   </script>
- </head>
- <body>
-  <a href = "PlaceList_store.html" onclick="setChildValue(5)">강동구</a>
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDb7Y0vXrXNvL3Y97gxG0yefK3QScRq1QU",
+      authDomain: "wigotest-231d2.firebaseapp.com",
+      databaseURL: "https://wigotest-231d2.firebaseio.com",
+      projectId: "wigotest-231d2",
+      storageBucket: "wigotest-231d2.appspot.com",
+      messagingSenderId: "352491168261"
+    };
+    firebase.initializeApp(config);
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    // 인증하기
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+
+      console.log(user) // 인증 후 어떤 데이터를 받아오는지 확인해보기 위함.
+      // ...
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
+  </script>
+</head>
+
+<body>
+  <a href="test3.html" onclick="setChildValue(5)">강동구</a>
   <br/>
-  <a href = "test3.html" onclick="setChildValue(2)">강북구</a>
- </body>
+  <a href="test3.html" onclick="setChildValue(2)">강북구</a>
+  <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjg2Mi8xMzM5OA==">
+    <script type="text/javascript">
+        (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+
+          if (typeof LivereTower === 'function') {
+            return;
+          }
+
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+
+          e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript> 라이브리 댓글 작성을 위해 JavaScript를 활성화 해주세요</noscript>
+  </div>
+</body>
+
 </html>

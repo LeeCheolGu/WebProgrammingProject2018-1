@@ -109,6 +109,10 @@
       localStorage.clear();
       localStorage.setItem("district", index);
     }
+    function sendBestPlace(str) {
+      localStorage.clear();
+      localStorage.setItem("bestText", str);
+    }
   </script>
 </head>
 
@@ -159,26 +163,27 @@
         <area shape="poly" alt="강동구" title="" coords="596,330,587,337,592,356,588,368,591,372,599,372,603,380,603,391,597,395,598,401,606,406,613,405,617,411,632,415,636,413,636,407,644,402,648,400,648,390,647,382,653,374,663,365,667,360,679,366,688,366,693,360,691,340,687,331,685,325,684,316,680,310,680,306,682,302,682,296,676,293,672,294,670,296,662,297,655,303,644,308,635,313,633,316,625,316,619,319,612,324,603,325,596,330" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/gangdong.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'" onclick="setChildValue(2)" href = "PlaceList_store.html"/>
       </div>
     </section>
+    <br><br><br><br><br>
     <div class="demo">
       <div class="item">
           <ul id="content-slider" class="content-slider">
               <li>
-                  <a href="#"><img src="main/park.png" width="400" height="300"/></a>
+                  <a href="BestPlaceList.html" onclick="sendBestPlace('산책하기 좋은 공원 베스트 10곳')"><img src="main/park.png" width="400" height="300"/></a>
               </li>
               <li>
-                  <a href="#"><img src="main/art.png"/ width="400" height="300"/></a>
+                  <a href="BestPlaceList.html" onclick="sendBestPlace('부담없이 가기 좋은 미술관 베스트 5곳')"><img src="main/art.png"/ width="400" height="300"/></a>
               </li>
               <li>
-                  <a href="#"><img src="main/book.png" width="400" height="300"/></a>
+                  <a href="BestPlaceList.html" onclick="sendBestPlace('만화방&북카페 베스트 6곳')"><img src="main/book.png" width="400" height="300"/></a>
               </li>
               <li>
-                  <a href="#"><img src="main/japanfood.png" width="400" height="300"/></a>
+                  <a href="BestPlaceList.html" onclick="sendBestPlace('혼밥의 정석, 일식 베스트 7곳')"><img src="main/japanfood.png" width="400" height="300"/></a>
               </li>
               <li>
-                  <a href="#"><img src="main/drink.png" width="400" height="300"/></a>
+                  <a href="BestPlaceList.html" onclick="sendBestPlace('안주가 맛있는 술집 베스트 7곳')"><img src="main/drink.png" width="400" height="300"/></a>
               </li>
               <li>
-                  <a href="#"><img src="main/cafe.png" width="400" height="300"/></a>
+                  <a href="BestPlaceList.html" onclick="sendBestPlace('분위기 좋은 카페 베스트 10곳')"><img src="main/cafe.png" width="400" height="300"/></a>
               </li>
           </ul>
       </div>
