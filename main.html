@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>WIGO-혼자서 갈수있는 장소!</title>
+  <style>
+    * {
+      /* 전체 코드에 적용 */
+      margin: 0;
+      padding: 0;
+      /* 여백 설정 초기화 */
+      font-family: '맑은 고딕', 'Malgun Gothic', Gothic, sans-serif;
+      /* 폰트 설정, 설정이 여러가지인 이유는 각자의 브라우저에 없을 수 있기 때문에 설정했다. 뒤로 갈수록 보편적인폰트 */
+    }
+
+    a {
+      /* a링크에 적용 */
+      text-decoration: none;
+      /* 링크 밑줄 다 삭제 */
+    }
+
+    #page-wrapper {
+      margin: 0 auto;
+    }
+
+    .image {
+      float: left;
+    }
+
+    .inputform {
+      float: right;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto;
+      width: 400px;
+    }
+
+    .seoulmap {
+      display: block;
+      margin: 0 auto;
+      width: 750px;
+    }
+
+    .telandemail {
+      float: left;
+    }
+  </style>
+  </script>
+  <link rel="stylesheet" href="main/lightslider/css/lightslider.css" />
+  <style>
+    ul {
+      list-style: none outside none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .demo .item {
+      margin-bottom: 60px;
+    }
+
+    .content-slider img {
+      margin: 0;
+      text-align: center;
+      color: #FFFFFF;
+    }
+
+    .demo {
+      display: block;
+      margin: 0 auto;
+      width: 1200px;
+    }
+  </style>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="main/lightslider/js/lightslider.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $("#content-slider").lightSlider({
+        loop: true,
+        keyPress: true
+      });
+      $('#image-gallery').lightSlider({
+        gallery: true,
+        item: 1,
+        thumbItem: 9,
+        slideMargin: 0,
+        speed: 500,
+        auto: true,
+        loop: true,
+        onSliderLoad: function() {
+          $('#image-gallery').removeClass('cS-hidden');
+        }
+      });
+    });
+  </script>
+  <script>
+    //function chklogin() {
+    // if (document.frmlogin.loginid.value=="test" && document.frmlogin.loginpwd.value=="1234"){
+    //location.href="mainsuccess.html" //성공페이지로 이동
+    // }
+    //else{
+    //    alert("아이디 또는 비밀번호가 틀립니다.");
+    //}
+    //  }
+    function setChildValue(index) {
+      localStorage.clear();
+      localStorage.setItem("district", index);
+    }
+  </script>
+</head>
+
+<body>
+  <br/>
+  <header>
+    <div class="inputform">
+      <!-- <form name="frmlogin">
+            <table>
+              <tr><td><input name="loginid" type="text" /></td>
+              <td><input name="loginpwd" type="password" /></td>
+              <td><img src="http://placehold.it/65x35/" onclick="chklogin"/></td></tr>
+            </table>
+        </form> -->
+    </div>
+    <div class="logo">
+      <img src="main/Logo.png" width="400" height="200" />
+    </div>
+  </header>
+  <hr/>
+  <section>
+    <div class="seoulmap">
+      <img src="main/seoulmap.png" width="750" usemap="#seoulmap" name="mainimg" />
+      <map id="imgmap2018515212936" name="seoulmap"><area shape="poly" alt="강서구" title="" coords="105,251,153,292,165,296,170,303,185,308,188,322,214,337,233,355,233,360,222,361,197,351,191,354,188,357,190,368,195,385,190,390,190,398,179,397,175,403,163,401,154,383,148,377,150,367,144,356,136,358,133,369,129,373,121,368,105,368,88,377,76,363,60,361,38,343,51,341,49,335,62,335,56,321,64,316,65,309,73,303,76,298,85,297,92,283,100,276,100,270,94,266,94,253,97,249,104,249,105,250"  target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/gangseo.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'" onclick="setChildValue(4)" href = "PlaceList_store.html"/>
+        <area shape="poly" alt="양천구" title="" coords="142,362,147,369,144,377,146,382,155,389,159,403,170,407,177,406,180,399,184,400,190,400,194,397,194,392,198,388,194,359,195,357,200,357,205,360,227,368,227,371,232,378,236,381,237,389,232,393,225,399,222,405,220,416,216,425,213,426,210,432,210,437,207,441,199,441,193,437,186,430,179,429,175,430,171,431,167,436,159,440,158,447,153,450,150,446,147,439,143,435,133,434,131,432,137,429,138,423,138,416,133,410,133,397,137,393,139,387,140,384,137,382,136,375,138,369,138,363,140,362" onclick="setChildValue(19)" href = "PlaceList_store.html" target="" onfocus="this.blur()"  onmouseover="if(document.images) mainimg.src='main/yangcheon.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="구로구" title="" coords="130,440,125,450,119,455,117,458,119,462,126,465,129,473,126,478,122,480,122,484,125,487,130,493,134,498,141,498,145,493,151,494,155,495,157,500,164,501,168,497,168,489,169,485,178,482,193,471,194,459,198,459,208,467,215,473,217,478,224,480,228,487,238,493,241,495,252,493,251,487,250,481,243,478,238,470,233,457,233,448,237,441,237,431,232,429,223,425,219,429,215,431,214,438,213,442,209,445,206,446,200,447,193,444,189,440,186,436,181,434,172,436,168,441,163,443,160,447,159,452,157,455,151,455,148,453,145,450,144,444,142,441,137,439,133,439,133,439" onclick="setChildValue(7)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/guro.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'" />
+        <area shape="poly" alt="금천구" title="" coords="219,485,227,494,239,499,257,496,261,495,264,496,269,500,269,504,265,507,264,509,265,512,269,515,271,528,274,537,280,541,286,543,290,551,290,556,285,558,284,563,278,567,272,565,264,569,258,569,252,564,249,549,232,540,230,537,233,532,232,526,228,521,225,512,221,503,217,498,214,490" onclick="setChildValue(8)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/geumcheon.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="은평구" title="" coords="231,284,244,297,259,301,265,290,264,283,268,280,276,280,276,285,279,287,285,287,285,282,287,279,294,279,299,274,297,266,317,253,316,248,327,240,330,233,327,225,328,220,333,217,334,211,339,208,341,200,358,193,360,188,353,178,349,169,338,161,337,149,329,147,324,143,315,142,311,148,310,156,280,169,272,171,269,177,267,186,262,192,264,204,263,211,257,216,253,229,256,250,260,254,259,263,254,268,253,272,248,275,239,280,235,279,232,280,231,281" onclick="setChildValue(22)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/eunpyung.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="서대문구" title="" coords="260,303,268,294,268,286,271,284,275,286,275,291,280,293,289,288,289,282,293,281,301,279,303,268,320,258,319,252,329,243,331,244,341,269,337,278,336,283,339,290,334,293,333,297,347,311,352,321,355,326,350,329,346,331,346,337,334,340,315,341,300,337,293,334,293,328,295,324,289,319,283,319,276,316,266,313,260,307" onclick="setChildValue(14)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/seodaemun.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'" />
+        <area shape="poly" alt="마포구" title="" coords="224,276,216,283,215,292,214,296,204,302,196,306,188,306,188,308,191,319,195,321,215,332,229,344,246,357,255,368,266,368,272,374,291,377,304,380,310,383,314,390,319,393,323,388,321,382,324,379,337,378,340,370,340,360,351,353,348,345,333,345,313,346,295,341,286,336,291,326,286,326,275,323,261,317,253,305,244,301,235,296,226,285" onclick="setChildValue(13)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/mapo.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="영등포구" title="" coords="241,361,251,369,252,372,261,373,272,379,304,385,311,392,325,406,325,414,318,417,294,417,291,419,286,437,286,447,283,453,276,456,274,459,266,462,261,469,257,476,249,475,244,468,240,460,238,446,241,443,243,436,242,427,224,419,227,406,233,397,241,393,242,380,231,370,234,363,238,361,238,361,240,360,240,361" onclick="setChildValue(20)" href = "PlaceList_store.html" target="" onmouseover="if(document.images) mainimg.src='main/youngdengpo.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'" />
+        <area shape="poly" alt="동작구" title="" coords="294,423,290,434,291,446,289,452,288,458,285,458,277,460,275,465,270,466,262,475,263,477,278,472,284,473,293,465,293,462,304,460,318,468,326,464,337,469,343,463,349,464,352,473,351,483,350,490,356,497,373,500,383,495,379,470,385,458,385,453,380,452,370,446,373,433,368,429,360,428,355,430,349,432,338,425,331,419,326,419,323,421,313,422" onclick="setChildValue(12)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/dongjak.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="관악구" title="" coords="256,483,256,489,261,492,269,494,275,501,273,507,270,510,271,514,274,521,277,527,278,536,282,539,290,538,293,549,305,564,313,571,351,572,356,568,352,563,354,557,358,555,368,558,372,554,373,550,383,545,385,540,378,539,381,533,389,532,389,523,384,522,384,514,378,505,371,505,354,501,345,489,347,474,347,468,342,470,341,474,332,472,327,471,320,472,311,472,306,467,301,466,296,468,297,471,288,478,282,480,278,479,264,481,259,481,258,482,259,481" onclick="setChildValue(5)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/ghaonwak.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="종로구" title="" coords="346,202,342,211,340,213,336,220,335,224,332,226,335,233,333,242,340,252,344,267,344,278,341,282,342,285,346,289,342,294,339,297,339,300,344,302,351,310,355,320,358,322,362,316,374,313,391,317,402,319,424,316,439,311,438,304,432,298,426,301,420,303,415,298,416,289,409,286,409,280,410,277,408,274,404,277,397,276,389,273,380,270,377,264,379,257,386,252,385,245,386,237,383,228,378,220,374,211,372,204,368,204,368,200,365,197,361,197,358,200,353,202,347,202,347,203" onclick="setChildValue(23)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/jongro.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="중구" title="" coords="363,323,363,330,353,334,349,337,353,343,355,349,368,346,377,344,388,345,399,353,403,356,415,354,422,359,431,351,437,338,447,330,443,316,432,318,419,322,392,322,380,318,371,318,365,321,363,322,363,322" onclick="setChildValue(24)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/jung.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="용산구" title="" coords="358,353,349,360,341,365,343,374,337,382,328,385,326,387,326,394,323,398,330,405,337,417,348,425,363,423,373,425,389,424,412,416,420,402,437,388,432,381,423,380,422,371,415,360,403,360,393,355,384,349,375,348,360,351,358,353" onclick="setChildValue(21)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/yongsan.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'" />
+        <area shape="poly" alt="서초구" title="" coords="384,432,376,437,379,448,390,450,392,456,385,469,385,480,385,491,385,500,382,505,387,510,390,522,393,522,395,528,401,523,407,515,410,514,416,521,420,532,429,539,441,539,449,531,453,524,455,520,460,520,464,528,468,536,467,541,469,547,472,548,472,551,467,556,465,561,468,570,470,574,476,574,487,584,492,589,505,588,511,591,521,591,521,583,527,577,522,567,527,562,540,561,549,560,550,555,548,546,554,540,557,533,558,528,556,525,549,523,545,518,542,513,543,505,537,506,532,507,529,508,522,505,516,508,511,514,508,518,496,518,489,517,485,512,485,508,479,507,475,503,475,495,475,492,470,487,465,486,457,480,452,468,444,449,439,435,437,420,436,415,428,405,425,405,423,409,420,414,418,420,413,423,405,427,398,428,390,431" onclick="setChildValue(15)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/seocho.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="강북구" title="" coords="410,94,393,99,392,105,396,113,399,129,392,136,383,140,375,145,376,152,382,163,386,172,387,183,405,192,414,204,420,207,424,215,425,222,428,225,436,225,437,225,442,231,449,231,456,235,465,228,474,218,480,217,484,211,480,205,473,199,462,189,456,179,449,170,442,164,430,161,426,157,425,143,434,124,434,117,428,113,424,107,421,105,418,102,415,94,412,93" onclick="setChildValue(3)" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/gangbuk.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="성북구" title="" coords="382,184,390,192,402,195,406,206,417,212,422,228,428,231,435,230,440,237,451,237,456,242,461,240,465,232,473,227,476,223,482,223,487,217,491,219,498,228,502,233,515,232,520,236,521,242,510,243,501,246,497,252,492,253,486,254,483,258,483,262,476,264,472,264,470,274,459,281,450,290,443,297,433,292,424,295,421,294,422,288,423,283,417,284,414,281,415,277,413,270,409,269,405,271,391,270,384,266,383,260,388,256,392,252,390,242,391,239,387,227,385,218,378,214,378,204,373,197,371,194,378,186,379,185" onclick="setChildValue(17)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/seongbuk.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="동대문구" title="" coords="504,250,497,258,487,260,485,265,479,269,473,268,471,278,463,284,450,297,446,300,444,312,454,315,464,312,465,308,472,306,491,324,498,331,517,334,522,333,526,319,530,315,530,302,526,294,518,278,517,273,511,264,515,258,520,253,520,249,509,249,503,250" onclick="setChildValue(11)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/dongdaemun.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="성동구" title="" coords="449,319,463,319,471,310,495,333,501,339,516,339,514,346,508,354,508,376,500,383,497,390,495,392,492,387,485,383,472,381,464,376,453,375,442,384,439,385,436,377,427,375,426,363,430,357,435,353,438,342,445,342,450,333,450,326,446,320,447,319" onclick="setChildValue(16)" href = "PlaceList_store.html" target="" onmouseover="if(document.images) mainimg.src='main/seongdong.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="강남구" title="" coords="453,383,437,394,431,401,438,411,441,418,442,429,448,440,456,462,459,474,467,481,472,480,482,491,483,500,489,505,493,513,506,513,518,501,523,500,529,502,535,501,545,501,548,508,550,516,559,521,563,528,569,532,575,529,577,526,582,526,583,530,590,531,593,525,594,523,598,521,598,515,593,503,590,497,581,492,577,473,572,469,564,469,552,462,539,455,525,452,513,440,514,418,514,408,508,403,498,399,487,391,486,389,472,384,460,380,454,381,453,382" onclick="setChildValue(1)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/gangnam.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="도봉구" title="" coords="426,65,428,73,425,76,420,80,420,91,419,92,422,99,426,100,431,106,433,110,438,114,441,121,437,130,433,139,431,148,431,155,437,158,445,159,458,170,462,181,470,188,475,190,477,182,480,174,485,171,490,171,493,177,498,174,496,162,495,150,490,140,485,131,480,123,478,116,484,107,488,99,491,92,489,86,490,79,483,78,481,79,476,73,468,73,464,79,459,78,456,71,453,62,446,62,441,62,438,57,434,57,430,58,426,63,425,65" onclick="setChildValue(10)" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/dobong.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="노원구" title="" coords="518,72,515,80,504,81,494,87,493,102,486,111,484,122,492,134,502,158,502,173,496,181,490,182,488,176,483,179,480,187,479,197,486,204,490,214,497,217,502,223,505,229,515,228,520,227,528,225,537,220,545,214,558,221,570,215,566,208,572,202,580,198,586,195,586,188,581,178,575,171,569,170,560,169,554,169,555,159,552,154,546,150,541,147,540,142,547,141,554,141,558,136,555,125,554,117,552,106,550,105,549,101,554,97,558,93,556,84,553,81,546,80,544,82,539,83,537,81,538,76,542,74,541,69,537,68,533,66,530,70,526,72,519,72,518,72" onclick="setChildValue(9)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/nowon.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="중랑구" title="" coords="544,220,530,229,524,231,527,240,526,250,522,258,517,261,517,266,521,270,524,284,533,291,534,302,535,313,546,312,553,317,564,310,564,302,565,293,576,289,581,283,580,275,591,268,587,257,587,252,594,248,592,243,587,238,590,230,590,223,587,220,580,218,570,220,566,226,560,228,552,224,546,219,544,221" onclick="setChildValue(25)" href = "PlaceList_store.html" target="" onmouseover="if(document.images) mainimg.src='main/jungrang.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="광진구" title="" coords="539,317,529,323,522,334,518,348,513,355,512,372,509,382,505,383,501,394,508,398,515,404,535,403,553,401,566,393,575,376,584,365,586,347,584,340,570,337,563,333,566,324,571,320,570,315,566,316,560,320,556,323,554,323,546,317,539,317" onclick="setChildValue(6)" href = "PlaceList_store.html" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/gwangjin.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="송파구" title="" coords="519,408,519,434,527,448,544,454,566,465,573,464,584,479,588,488,594,496,602,510,609,517,619,518,617,510,610,505,609,497,614,495,626,497,631,502,646,492,646,483,656,474,658,465,662,460,657,452,652,448,642,447,630,443,627,426,629,422,627,418,616,416,610,410,602,408,592,401,592,392,600,386,597,377,591,375,585,374,578,378,574,386,571,395,568,399,560,403,550,406,525,407,520,408,519,409" onclick="setChildValue(18)" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/songpa.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'"/>
+        <area shape="poly" alt="강동구" title="" coords="596,330,587,337,592,356,588,368,591,372,599,372,603,380,603,391,597,395,598,401,606,406,613,405,617,411,632,415,636,413,636,407,644,402,648,400,648,390,647,382,653,374,663,365,667,360,679,366,688,366,693,360,691,340,687,331,685,325,684,316,680,310,680,306,682,302,682,296,676,293,672,294,670,296,662,297,655,303,644,308,635,313,633,316,625,316,619,319,612,324,603,325,596,330" target="" onfocus="this.blur()" onmouseover="if(document.images) mainimg.src='main/gangdong.jpg'"  onmouseout="if(document.images) mainimg.src='main/seoulmap.png'" onclick="setChildValue(2)" href = "PlaceList_store.html"/>
+      </div>
+    </section>
+    <div class="demo">
+      <div class="item">
+          <ul id="content-slider" class="content-slider">
+              <li>
+                  <a href="#"><img src="main/park.png" width="400" height="300"/></a>
+              </li>
+              <li>
+                  <a href="#"><img src="main/art.png"/ width="400" height="300"/></a>
+              </li>
+              <li>
+                  <a href="#"><img src="main/book.png" width="400" height="300"/></a>
+              </li>
+              <li>
+                  <a href="#"><img src="main/japanfood.png" width="400" height="300"/></a>
+              </li>
+              <li>
+                  <a href="#"><img src="main/drink.png" width="400" height="300"/></a>
+              </li>
+              <li>
+                  <a href="#"><img src="main/cafe.png" width="400" height="300"/></a>
+              </li>
+          </ul>
+      </div>
+  </div>
+    <hr/>
+    <footer class="telandemail">
+        전화번호: 010-0000-0000 이메일:aaa@wigo.com
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="headerStyle.css" />
+    <meta charset="utf-8">
+
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery.min.js">
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<script>
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDb7Y0vXrXNvL3Y97gxG0yefK3QScRq1QU",
+    authDomain: "wigotest-231d2.firebaseapp.com",
+    databaseURL: "https://wigotest-231d2.firebaseio.com",
+    projectId: "wigotest-231d2",
+    storageBucket: "wigotest-231d2.appspot.com",
+    messagingSenderId: "352491168261"
+  };
+  firebase.initializeApp(config);
+  var provider = new firebase.auth.GoogleAuthProvider();
+
+// 인증하기
+firebase.auth().signInWithPopup(provider).then(function(result) {
+	// This gives you a Google Access Token. You can use it to access the Google API.
+	var token = result.credential.accessToken;
+	// The signed-in user info.
+	var user = result.user;
+
+	console.log(user)		// 인증 후 어떤 데이터를 받아오는지 확인해보기 위함.
+// ...
+}).catch(function(error) {
+	// Handle Errors here.
+	var errorCode = error.code;
+	var errorMessage = error.message;
+	// The email of the user's account used.
+	var email = error.email;
+	// The firebase.auth.AuthCredential type that was used.
+	var credential = error.credential;
+	// ...
+});
+</script>
+    <title></title>
+  </head>
+  <body>
+    <header id="header">
+            <form class="inputForm">
+              <input type="text" value="아이디" />
+              <input type="password" />
+              <input type="submit" value="로그인"/>
+            </form>
+          <a href="#"><img src="logo1.png"  class="firstImage"/></a>
+          <img src="logo2.png"  class="secondImage"/>
+    </header>
+
+
+    <nav>
+    </nav>
+  <div id="content">
+
+    <section id="main-section">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+    <aside id="main-aside">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </aside>
+  </div>
+  <footer></footer>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</hr>
+
+
+
+
+</hr>
+
+<!-- 라이브리 시티 설치 코드 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjg2Mi8xMzM5OA==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 라이브리 댓글 작성을 위해 JavaScript를 활성화 해주세요</noscript>
+</div>
+<!-- 시티 설치 코드 끝 -->
+
+
+  </body>
+</html>
