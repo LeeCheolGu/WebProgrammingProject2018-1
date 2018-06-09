@@ -60,14 +60,14 @@
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script>
     var district = localStorage.getItem("district");
+    var cafeObj = JSON.parse(cafeJsonText);
 
-    obj = JSON.parse(jsonText);
     $(document).ready(function() {
       if (district == 1) {
         $('#placeImage1').attr('src', 'images/강남구/카페/221B in seoul/1.jpg');
         $('#placeImage2').attr('src', 'images/강남구/카페/루소랩/1.jpg');
         $('#placeImage3').attr('src', 'images/강남구/카페/릴리앤폴/1.jpg');
-        $('#placeImage4').attr('src', 'images/강남구/카페/어반레빗/1.jpg');
+        $('#placeImage4').attr('src', 'images/강남구/카페/어반래빗/1.jpg');
         $('#placeImage5').attr('src', 'images/강남구/카페/에이블/1.jpg');
         $('#placeImage6').css('display', 'none');
 
@@ -135,6 +135,7 @@
         $('#placeImage4').attr('src', 'images/도봉구/카페/일월생/1.jpg');
         $('#placeImage5').attr('src', 'images/도봉구/카페/칠복상회/1.jpg');
         $('#placeImage6').attr('src', 'images/도봉구/카페/카페상인/1.jpg');
+        document.getElementById("placeName6").innerHTML = cafeObj.district[district - 1].Name6;
       } else if (district == 11) {
         $('#placeImage1').attr('src', 'images/동대문구/카페/다보드레/1.jpg');
         $('#placeImage2').attr('src', 'images/동대문구/카페/달콤한이층/1.jpg');
@@ -153,9 +154,10 @@
         $('#placeImage1').attr('src', 'images/마포구/카페/랑데자뷰/1.jpg');
         $('#placeImage2').attr('src', 'images/마포구/카페/손탁/1.jpg');
         $('#placeImage3').attr('src', 'images/마포구/카페/종이다방/1.jpg');
-        $('#placeImage4').attr('src', 'images/마포구/카페/카페부부/1.jpg');
-        $('#placeImage5').attr('src', 'images/마포구/카페/카페시멘트/1.jpg');
+        $('#placeImage4').attr('src', 'images/마포구/카페/카페부부/3.jpg');
+        $('#placeImage5').attr('src', 'images/마포구/카페/카페시멘트/3.jpg');
         $('#placeImage6').attr('src', 'images/마포구/카페/커피발전소/1.jpg');
+        document.getElementById("placeName6").innerHTML = cafeObj.district[district - 1].Name6;
       } else if (district == 14) {
         $('#placeImage1').attr('src', 'images/서대문구/카페/노아스로스팅/1.jpg');
         $('#placeImage2').attr('src', 'images/서대문구/카페/매뉴팩트커피/1.jpg');
@@ -242,21 +244,60 @@
         $('#placeImage6').css('display', 'none');
       }
 
-      $("#place1").hover(
-        function() {
-          $("#place1").addClass("hover");
-        },
-        function() {
-          $("#place1").removeClass("hover");
-        });
-      $("#place1").hover(function() {
+      // div 리스트 공간마다 마우스 이벤트 걸기
+      $("#place1").mouseup(function() {
         $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
       });
-      document.getElementById("placeName1").innerHTML = obj.district[district - 1].Name1;
-      document.getElementById("placeName2").innerHTML = obj.district[district - 1].Name2;
-      document.getElementById("placeName3").innerHTML = obj.district[district - 1].Name3;
-      document.getElementById("placeName4").innerHTML = obj.district[district - 1].Name4;
-      document.getElementById("placeName5").innerHTML = obj.district[district - 1].Name5;
+      $("#place1").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //2 번 째 div 공간
+      $("#place2").mouseup(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      $("#place2").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //3 번 째 div 공간
+      $("#place3").mouseup(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      $("#place3").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //4 번 째 div 공간
+      $("#place4").mouseup(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      $("#place4").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //5 번 째 div 공간
+      $("#place5").mouseup(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      $("#place5").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //6 번 째 div 공간
+      $("#place6").mouseup(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      $("#place6").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //문서 내 json 파싱한 데이터 뿌리기
+      document.getElementById("placeName1").innerHTML = cafeObj.district[district - 1].Name1;
+      document.getElementById("placeName2").innerHTML = cafeObj.district[district - 1].Name2;
+      document.getElementById("placeName3").innerHTML = cafeObj.district[district - 1].Name3;
+      document.getElementById("placeName4").innerHTML = cafeObj.district[district - 1].Name4;
+      document.getElementById("placeName5").innerHTML = cafeObj.district[district - 1].Name5;
     });
   </script>
 </head>
@@ -269,7 +310,7 @@
       <input type="password" />
       <input type="submit" value="로그인" />
     </form>
-    <a href="#"><img src="logo_wigo.png"  class="firstImage"/></a>
+    <a href="main.html"><img src="logo_wigo.png"  class="firstImage"/></a>
     <img src="logo_whereigo.png" class="secondImage" />
   </header>
   <!-- 2. 내비게이션 바 -->
@@ -293,43 +334,49 @@
   <section class="section">
     <a href="#">
       <div id="place1">
-        <img id="placeImage1" src="http://placehold.it/360x240" />
-        <h4 id="placeName1"> 둥산둥 </h4><br/><br/>
+        <img id="placeImage1" src="http://placehold.it/360x240" /><br/><br/>
+        <h4 id="placeName1"> 둥산둥 </h4>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place2">
-        <img id="placeImage2" src="http://placehold.it/360x240" />
-        <h4 id="placeName2"> 둥산둥 </h4><br/><br/>
+        <img id="placeImage2" src="http://placehold.it/360x240" /><br/><br/>
+        <h4 id="placeName2"> 둥산둥 </h4>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place3">
-        <img id="placeImage3" src="http://placehold.it/360x240" />
-        <h4 id="placeName3"> 둥산둥 </h4><br/><br/>
+        <img id="placeImage3" src="http://placehold.it/360x240" /><br/><br/>
+        <h4 id="placeName3"> 둥산둥 </h4>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place4">
-        <img id="placeImage4" src="http://placehold.it/360x240" />
-        <h4 id="placeName4"> 둥산둥 </h4><br/><br/>
+        <img id="placeImage4" src="http://placehold.it/360x240" /><br/><br/>
+        <h4 id="placeName4"> 둥산둥 </h4>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place5">
-        <img id="placeImage5" />
-        <h4 id="placeName5"> 둥산둥 </h4><br/><br/>
+        <img id="placeImage5" /><br/><br/>
+        <h4 id="placeName5"> 둥산둥 </h4>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place6">
-        <img id="placeImage6" />
+        <img id="placeImage6" /><br/><br/>
         <h4 id="placeName6"></h4>
+        <br/><br/><br/><br/>
       </div>
     </a>
 

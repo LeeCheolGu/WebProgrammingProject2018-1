@@ -60,7 +60,7 @@
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script>
     var district = localStorage.getItem("district");
-    obj = JSON.parse(jsonText);
+    var etcObj = JSON.parse(etcJsonText);
 
     $(document).ready(function() {
       if (district == 1) {
@@ -155,7 +155,8 @@
         $('#placeImage3').attr('src', 'images/마포구/기타/상암DMC/1.jpg');
         $('#placeImage4').attr('src', 'images/마포구/기타/하늘공원/1.jpg');
         $('#placeImage5').attr('src', 'images/마포구/기타/한국영화박물관/1.jpg');
-        $('#placeImage6').attr('src', 'images/마포구/기타/허니홀/1.jpg');
+        $('#placeImage6').attr('src', 'images/마포구/기타/허니홀/3.jpg');
+        document.getElementById("placeName6").innerHTML = etcObj.district[district - 1].Name6;
       } else if (district == 14) {
         $('#placeImage1').attr('src', 'images/서대문구/기타/개미마을/1.jpg');
         $('#placeImage2').attr('src', 'images/서대문구/기타/독도체험관/1.jpg');
@@ -226,6 +227,7 @@
         $('#placeImage4').attr('src', 'images/종로구/기타/북촌한옥마을/1.jpg');
         $('#placeImage5').attr('src', 'images/종로구/기타/임시정부청사 경교장/1.jpg');
         $('#placeImage6').attr('src', 'images/종로구/기타/청계천/1.jpg');
+        document.getElementById("placeName6").innerHTML = etcObj.district[district - 1].Name6;
       } else if (district == 24) {
         $('#placeImage1').attr('src', 'images/중구/기타/남산/1.jpg');
         $('#placeImage2').attr('src', 'images/중구/기타/동대문디자인플라자/1.jpg');
@@ -242,21 +244,60 @@
         $('#placeImage6').css('display', 'none');
       }
 
-      $("#place1").hover(
-        function() {
-          $("#place1").addClass("hover");
-        },
-        function() {
-          $("#place1").removeClass("hover");
-        });
-      $("#place1").hover(function() {
+      // div 리스트 공간마다 마우스 이벤트 걸기
+      $("#place1").mouseup(function() {
         $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
       });
-      document.getElementById("placeName1").innerHTML = obj.district[district - 1].Name1;
-      document.getElementById("placeName2").innerHTML = obj.district[district - 1].Name2;
-      document.getElementById("placeName3").innerHTML = obj.district[district - 1].Name3;
-      document.getElementById("placeName4").innerHTML = obj.district[district - 1].Name4;
-      document.getElementById("placeName5").innerHTML = obj.district[district - 1].Name5;
+      $("#place1").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //2 번 째 div 공간
+      $("#place2").mouseup(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      $("#place2").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //3 번 째 div 공간
+      $("#place3").mouseup(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      $("#place3").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //4 번 째 div 공간
+      $("#place4").mouseup(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      $("#place4").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //5 번 째 div 공간
+      $("#place5").mouseup(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      $("#place5").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+      
+      //6 번 째 div 공간
+      $("#place6").mouseup(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      $("#place6").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      // 문서 내 가게 이름 json 파일에서 갖고와서 출력
+      document.getElementById("placeName1").innerHTML = etcObj.district[district - 1].Name1;
+      document.getElementById("placeName2").innerHTML = etcObj.district[district - 1].Name2;
+      document.getElementById("placeName3").innerHTML = etcObj.district[district - 1].Name3;
+      document.getElementById("placeName4").innerHTML = etcObj.district[district - 1].Name4;
+      document.getElementById("placeName5").innerHTML = etcObj.district[district - 1].Name5;
     });
 
   </script>
@@ -270,7 +311,7 @@
       <input type="password" />
       <input type="submit" value="로그인" />
     </form>
-    <a href="#"><img src="logo_wigo.png"  class="firstImage"/></a>
+    <a href="main.html"><img src="logo_wigo.png"  class="firstImage"/></a>
     <img src="logo_whereigo.png" class="secondImage" />
   </header>
   <!-- 2. 내비게이션 바 -->
@@ -293,43 +334,49 @@
   <section class="section">
     <a href="#">
       <div id="place1">
-        <img id="placeImage1" src="http://placehold.it/360x240" />
-        <h4 id="placeName1"> 둥산둥 </h4><br/><br/>
+        <img id="placeImage1" src="http://placehold.it/360x240" /><br/><br/>
+        <h4 id="placeName1"> 둥산둥 </h4>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place2">
-        <img id="placeImage2" src="http://placehold.it/360x240" />
-        <h4 id="placeName2"> 둥산둥 </h4><br/><br/>
+        <img id="placeImage2" src="http://placehold.it/360x240" /><br/><br/>
+        <h4 id="placeName2"> 둥산둥 </h4>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place3">
-        <img id="placeImage3" src="http://placehold.it/360x240" />
-        <h4 id="placeName3"> 둥산둥 </h4><br/><br/>
+        <img id="placeImage3" src="http://placehold.it/360x240" /><br/><br/>
+        <h4 id="placeName3"> 둥산둥 </h4>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place4">
-        <img id="placeImage4" src="http://placehold.it/360x240" />
-        <h4 id="placeName4"> 둥산둥 </h4><br/><br/>
+        <img id="placeImage4" src="http://placehold.it/360x240" /><br/><br/>
+        <h4 id="placeName4"> 둥산둥 </h4>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place5">
-        <img id="placeImage5" />
-        <h4 id="placeName5"> 둥산둥 </h4><br/><br/>
+        <img id="placeImage5" /><br/><br/>
+        <h4 id="placeName5"> 둥산둥 </h4>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
     <a href="#">
       <div id="place6">
-        <img id="placeImage6" />
+        <img id="placeImage6" /><br/><br/>
         <h4 id="placeName6"></h4>
+        <br/><br/><br/><br/>
       </div>
     </a>
 

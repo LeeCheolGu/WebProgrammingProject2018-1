@@ -71,7 +71,7 @@
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script>
     var district = localStorage.getItem("district");
-    obj = JSON.parse(jsonText);
+    var obj = JSON.parse(jsonText);
     $(document).ready(function() {
       if (district == 1) {
         $('#placeImage1').attr('src', 'images/강남구/맛집/꼭그닭/1.jpg');
@@ -80,7 +80,6 @@
         $('#placeImage4').attr('src', 'images/강남구/맛집/미즈컨테이너/1.jpg');
         $('#placeImage5').attr('src', 'images/강남구/맛집/신사랑/1.jpg');
         $('#placeImage6').css('display', 'none');
-
       } else if (district == 2) {
         $('#placeImage1').attr('src', 'images/강동구/맛집/일국화/4.jpg');
         $('#placeImage2').attr('src', 'images/강동구/맛집/참국/4.jpg');
@@ -88,7 +87,6 @@
         $('#placeImage4').attr('src', 'images/강동구/맛집/테마라면/5.jpg');
         $('#placeImage5').attr('src', 'images/강동구/맛집/하루식당/3.jpg.jpg');
         $('#placeImage6').css('display', 'none');
-
       } else if (district == 3) {
         $('#placeImage1').attr('src', 'images/강북구/맛집/상미식당/1.jpg');
         $('#placeImage2').attr('src', 'images/강북구/맛집/올뜨레마레/1.jpg');
@@ -161,11 +159,12 @@
         $('#placeImage6').css('display', 'none');
       } else if (district == 13) {
         $('#placeImage1').attr('src', 'images/마포구/맛집/거기서 거기더라/1.jpg');
-        $('#placeImage2').attr('src', 'images/마포구/맛집/기린입니다/1.jpg');
-        $('#placeImage3').attr('src', 'images/마포구/맛집/라몽림/1.jpg');
+        $('#placeImage2').attr('src', 'images/마포구/맛집/기린입니다/3.jpg');
+        $('#placeImage3').attr('src', 'images/마포구/맛집/라몽림/3.jpg');
         $('#placeImage4').attr('src', 'images/마포구/맛집/옥동식/1.jpg');
         $('#placeImage5').attr('src', 'images/마포구/맛집/원기정/1.jpg');
         $('#placeImage6').attr('src', 'images/마포구/맛집/하카타 분코/1.jpg');
+        document.getElementById("placeName6").innerHTML = obj.district[district - 1].Name6;
       } else if (district == 14) {
         $('#placeImage1').attr('src', 'images/서대문구/맛집/방콕익스프레스/1.jpg');
         $('#placeImage2').attr('src', 'images/서대문구/맛집/버거펠라즈/1.jpg');
@@ -252,23 +251,61 @@
         $('#placeImage6').css('display', 'none');
       }
 
-      $("#place1").hover(
-        function() {
-          $("#place1").addClass("hover");
-        },
-        function() {
-          $("#place1").removeClass("hover");
-        });
-      $("#place1").hover(function() {
+      // div 리스트 공간마다 마우스 이벤트 걸기
+      $("#place1").mouseup(function() {
         $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
       });
+      $("#place1").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //2 번 째 div 공간
+      $("#place2").mouseup(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      $("#place2").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //3 번 째 div 공간
+      $("#place3").mouseup(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      $("#place3").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //4 번 째 div 공간
+      $("#place4").mouseup(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      $("#place4").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //5 번 째 div 공간
+      $("#place5").mouseup(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      $("#place5").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //6 번 째 div 공간
+      $("#place6").mouseup(function() {
+        $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
+      });
+      $("#place6").mouseleave(function() {
+        $(this).css("backgroundColor", "white");
+      });
+
+      //문서 내 json 파일 파싱한거 뿌리기
       document.getElementById("placeName1").innerHTML = obj.district[district - 1].Name1;
       document.getElementById("placeName2").innerHTML = obj.district[district - 1].Name2;
       document.getElementById("placeName3").innerHTML = obj.district[district - 1].Name3;
       document.getElementById("placeName4").innerHTML = obj.district[district - 1].Name4;
       document.getElementById("placeName5").innerHTML = obj.district[district - 1].Name5;
     });
-
   </script>
 </head>
 
@@ -280,7 +317,7 @@
       <input type="password" />
       <input type="submit" value="로그인" />
     </form>
-    <a href="#"><img src="logo_wigo.png"  class="firstImage"/></a>
+    <a href="main.html"><img src="logo_wigo.png"  class="firstImage"/></a>
     <img src="logo_whereigo.png" class="secondImage" />
   </header>
 
@@ -355,8 +392,11 @@
 
     <a href="#">
       <div id="place6">
-        <!-- <img id="placeImage6" /><br/><br/>
-        <h4 id="placeName6"></h4> -->
+        <img id="placeImage6" /><br/><br/>
+        <h4 id="placeName6" class="star"> 둥산둥 </h4>
+        <img src="empty.png" id="starimage" class="star"></img>
+        <p class="star" id="evaluate">0.0</p>
+        <br/><br/><br/><br/>
       </div>
     </a>
 
