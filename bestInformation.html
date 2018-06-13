@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>WIGO-혼자서 갈수있는 장소!</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="headerStyle.css">
+  <link rel="stylesheet" href="starRating.css" />
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.0.L4/firebase.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>
+    window.open("store.html", "data", "option");
+    $(document).ready(function() {
+      var storeId = localStorage.getItem("explain");
+      read(storeId);
+
+    });
+  </script>
+  <script>
+    var initMap;
+
+    $(document).ready(function() {
+
+      // Key for local storage, use to save and access.
+      var FILE_KEY = "data.json";
+      var retrievedObject = localStorage.getItem(FILE_KEY);
+      console.log('retrievedObject: ', JSON.parse(retrievedObject));
+      var DataJSON = JSON.parse(retrievedObject);
+      var html = "";
+      var image = "";
+
+      var storeId = localStorage.getItem("explain");
+
+      storeId *= 1; //var 형식인 storeId 변수 숫자로 변환
+      var id = storeId;
+      //url을 파싱해서 id 값만 추출
+
+      $.each(DataJSON, function(index, entry) {
+        if (id != entry.id)
+          return true;
+
+        html += '<h2 class="stname">';
+        html += entry.name;
+        html += '</h2>';
+        html += '<table class="information">';
+        html += '<tr class="WH">';
+        html += '<th class="th_style">위치</th>';
+        html += '<td class="td_style">';
+        html += entry.address;
+        html += '</td></tr>';
+        html += '<tr class="PN">';
+        html += '<th class="th_style">전화번호</th>';
+        html += '<td class="td_style">';
+        html += entry.phone;
+        html += '</td></tr>';
+        html += '<tr class="OT">';
+        html += '<th class="th_style">영업시간</th>';
+        html += '<td class="td_style">';
+        html += entry.runTime;
+        html += '</td></tr>';
+        html += '<tr class="MENU">';
+        html += '<th class="th_style">가격정보</th>';
+        html += '<td class="td_style">';
+        html += entry.menu;
+        html += '</td>';
+        html += '</tr></table>';
+
+        $.each(entry.imageURL, function(index, ele) {
+          image += '<img src=';
+          image += ele;
+          image += ' width="20%" height="295px"  />';
+        });
+
+        initMap = function() {
+          var myLatLng = {
+            lat: entry.lat,
+            lng: entry.lng
+          };
+
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: myLatLng
+          });
+
+          var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: entry.name
+          });
+        }
+        return false;
+      });
+
+      $('#page-wrapper').html(html);
+      $('.taste').html(image);
+
+
+      // $('#dictionary').html(html);
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      var $star = $(".star-input"),
+        $result = $star.find("output>b");
+
+      $(document)
+        .on("focusin", ".star-input>.input",
+          function() {
+            $(this).addClass("focus");
+          })
+        .on("focusout", ".star-input>.input", function() {
+          var $this = $(this);
+          setTimeout(function() {
+            if ($this.find(":focus").length === 0) {
+              $this.removeClass("focus");
+            }
+          }, 100);
+        })
+        .on("change", ".star-input :radio", function() {
+          $result.text($(this).next().text());
+        })
+        .on("mouseover", ".star-input label", function() {
+          $result.text($(this).text());
+        })
+        .on("mouseleave", ".star-input>.input", function() {
+          var $checked = $star.find(":checked");
+          if ($checked.length === 0) {
+            $result.text("0");
+          } else {
+            $result.text($checked.next().text());
+          }
+        });
+      $("#input").click(function() {
+        var $checked = $star.find(":checked");
+        var str = localStorage.getItem("starScore");
+        var nowScore = $checked.next().text();
+        var storeId = localStorage.getItem("explain");
+        alert("localStorage :" + str);
+        nowScore *= 1;
+        str *= 1;
+        var val = (str + nowScore) / 2;
+        remove(storeId);
+        add(storeId, val);
+        read(storeId);
+      });
+    });
+  </script>
+
+  <script src="DataBaseMethods.js"></script>
+  <!--jquery-->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery.min.js">
+ </script> -->
+
+  <!-- <script>
+
+// Initialize Firebase
+var config = {
+ apiKey: "AIzaSyDb7Y0vXrXNvL3Y97gxG0yefK3QScRq1QU",
+ authDomain: "wigotest-231d2.firebaseapp.com",
+ databaseURL: "https://wigotest-231d2.firebaseio.com",
+ projectId: "wigotest-231d2",
+ storageBucket: "wigotest-231d2.appspot.com",
+ messagingSenderId: "352491168261"
+};
+firebase.initializeApp(config);
+var provider = new firebase.auth.GoogleAuthProvider();
+
+// 인증하기
+firebase.auth().signInWithPopup(provider).then(function(result) {
+// This gives you a Google Access Token. You can use it to access the Google API.
+var token = result.credential.accessToken;
+// The signed-in user info.
+var user = result.user;
+
+console.log(user)      // 인증 후 어떤 데이터를 받아오는지 확인해보기 위함.
+// ...
+}).catch(function(error) {
+// Handle Errors here.
+var errorCode = error.code;
+var errorMessage = error.message;
+// The email of the user's account used.
+var email = error.email;
+// The firebase.auth.AuthCredential type that was used.
+var credential = error.credential;
+// ...
+});
+</script> -->
+  <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<style>
+  #input {
+    margin-left: 20px;
+  }
+
+  .Score {
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .questionScore {
+    font-size: 25px;
+    font-weight: bold;
+    margin-right: 25px;
+  }
+
+  .star {
+    float: left;
+
+  }
+
+  .taste {
+
+    padding-left: 5px;
+    padding-top: 20px;
+    margin: 0 auto;
+  }
+
+  .td_style {
+    padding-left: 20px;
+  }
+
+  #restaurant {
+    padding-top: 10px;
+  }
+
+  #page-wrapper {
+    float: left;
+    position: relative;
+    width: 73%;
+    margin: 0 auto;
+    box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+    height: 338px;
+  }
+
+  #main-aside {
+    float: right;
+    width: 27%;
+
+  }
+
+  .information {
+    height: 300px;
+    padding-left: 10px;
+  }
+
+  .th_style {
+    padding-top: 10px;
+    width: 120px;
+  }
+
+  .stname {
+    padding-top: 5px;
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  footer {
+    background-color: #eee;
+    padding: 25px;
+  }
+
+  ul,
+  li {
+    list-style-type: none;
+  }
+
+  .list {
+    margin-top: 15px;
+  }
+</style>
+<style>
+  #map {
+    height: 338px;
+    width: 408px;
+  }
+</style>
+</head>
+
+<body>
+  <header id="header">
+    <a href="main.html"><img src="logo_wigo.png"  class="firstImage"/></a>
+    <img src="logo_whereigo.png" class="secondImage" />
+  </header>
+  <br/>
+  <br/>
+  <section>
+    <article>
+      <div class="taste"></div>
+    </article>
+
+    <hr/>
+    <div id="page-wrapper"></div>
+  </section>
+  <aside id="main-aside">
+    <div id="map"></div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjrZQG2mLgfJRTBddIiAo3mZVDK7RtF50&callback=initMap" async defer>
+      // Google Map
+      window.initMap = function() {
+        alert("ok");
+      }
+    </script>
+  </aside>
+  <div class="star">
+    <br/><br/>
+    <span class="questionScore">이곳 평점은?</span>
+    <span class="Score" id="displayScore">3.0</span>
+    <span class="star-input">
+  <span class="input">
+      <input type="radio" name="star-input" value="1" id="p1">
+      <label for="p1">1</label>
+      <input type="radio" name="star-input" value="2" id="p2">
+      <label for="p2">2</label>
+      <input type="radio" name="star-input" value="3" id="p3">
+      <label for="p3">3</label>
+      <input type="radio" name="star-input" value="4" id="p4">
+      <label for="p4">4</label>
+      <input type="radio" name="star-input" value="5" id="p5">
+      <label for="p5">5</label>
+    </span>
+    <output for="star-input"><b>0</b>점</output>
+    </span>
+    <input type="button" value="별점 주기" id="input" />
+    <br/><br/>
+  </div>
+
+
+
+  <!-- 라이브리 시티 설치 코드 -->
+  <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjg2Mi8xMzM5OA==">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+
+        if (typeof LivereTower === 'function') {
+          return;
+        }
+
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+    <noscript> 라이브리 댓글 작성을 위해 JavaScript를 활성화 해주세요</noscript>
+  </div>
+  <!-- 시티 설치 코드 끝 -->
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2>WIGO</h2>
+          <p>Are you worried about where to go alone? You can find a wide range of restaurants, cafes, and other places on the wigo site.</p>
+
+        </div>
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md">
+          <h5><strong>Contact Info</strong></h5>
+          <p><strong>Address:</strong> Jungdong-ro 209 Sejong University, Gwangjin-gu, Seoul
+            <!-- Random Adress -->
+          </p>
+          <p><strong>Email:</strong> email@wigo.com</p>
+          <p><strong>Tel.:</strong> (010) 1234 5678</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -5,10 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WIGO-혼자서 갈수있는 장소!</title>
+
   <link rel="stylesheet" href="listpagesReset.css" />
   <link rel="stylesheet" href="headerStyle.css" />
   <style>
-    section div {
+    .place {
       float: left;
       padding: 0px 30px;
     }
@@ -66,188 +67,196 @@
       text-align: center;
       padding: 5px 20px;
     }
+
+    footer {
+      margin-top: 1100px;
+      background-color: #eee;
+      padding: 25px;
+    }
+
   </style>
   <script src="storeData.js"></script>
+  <script src="DataBaseMethods.js"></script>
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script>
     var district = localStorage.getItem("district");
     var obj = JSON.parse(jsonText);
     $(document).ready(function() {
       if (district == 1) {
-        $('#placeImage1').attr('src', 'images/강남구/맛집/꼭그닭/1.jpg');
-        $('#placeImage2').attr('src', 'images/강남구/맛집/더커먼스/1.jpg');
-        $('#placeImage3').attr('src', 'images/강남구/맛집/마녀주방/1.jpg');
-        $('#placeImage4').attr('src', 'images/강남구/맛집/미즈컨테이너/1.jpg');
-        $('#placeImage5').attr('src', 'images/강남구/맛집/신사랑/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/강남구/맛집/꼭그닭/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/강남구/맛집/더커먼스/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/강남구/맛집/마녀주방/2.jpg');
+        $('#placeImage4').attr('src', '구별사진/강남구/맛집/미즈컨테이너/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/강남구/맛집/신사랑/3.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 2) {
-        $('#placeImage1').attr('src', 'images/강동구/맛집/일국화/4.jpg');
-        $('#placeImage2').attr('src', 'images/강동구/맛집/참국/4.jpg');
-        $('#placeImage3').attr('src', 'images/강동구/맛집/카레야상/4.jpg');
-        $('#placeImage4').attr('src', 'images/강동구/맛집/테마라면/5.jpg');
-        $('#placeImage5').attr('src', 'images/강동구/맛집/하루식당/3.jpg.jpg');
+        $('#placeImage1').attr('src', '구별사진/강동구/맛집/일국화/4.jpg');
+        $('#placeImage2').attr('src', '구별사진/강동구/맛집/참국/4.jpg');
+        $('#placeImage3').attr('src', '구별사진/강동구/맛집/카레야상/4.jpg');
+        $('#placeImage4').attr('src', '구별사진/강동구/맛집/테마라면/5.jpg');
+        $('#placeImage5').attr('src', '구별사진/강동구/맛집/하루식당/3.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 3) {
-        $('#placeImage1').attr('src', 'images/강북구/맛집/상미식당/1.jpg');
-        $('#placeImage2').attr('src', 'images/강북구/맛집/올뜨레마레/1.jpg');
-        $('#placeImage3').attr('src', 'images/강북구/맛집/육수당/1.jpg');
-        $('#placeImage4').attr('src', 'images/강북구/맛집/음밥/1.jpg');
-        $('#placeImage5').attr('src', 'images/강북구/맛집/치킨주는쫄면/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/강북구/맛집/상미식당/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/강북구/맛집/올뜨레마레/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/강북구/맛집/육수당/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/강북구/맛집/음밥/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/강북구/맛집/치킨주는쫄면/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 4) {
-        $('#placeImage1').attr('src', 'images/강서구/맛집/마싰는끼니/1.jpg');
-        $('#placeImage2').attr('src', 'images/강서구/맛집/모야그집/1.jpg');
-        $('#placeImage3').attr('src', 'images/강서구/맛집/산쪼메/1.jpg');
-        $('#placeImage4').attr('src', 'images/강서구/맛집/착한국수/1.jpg');
-        $('#placeImage5').attr('src', 'images/강서구/맛집/카모메 심야식당/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/강서구/맛집/마싰는끼니/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/강서구/맛집/모야그집/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/강서구/맛집/산쪼메/4.jpg');
+        $('#placeImage4').attr('src', '구별사진/강서구/맛집/착한국수/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/강서구/맛집/카모메심야식당/2.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 5) {
-        $('#placeImage1').attr('src', 'images/관악구/맛집/맑은 오후/1.jpg');
-        $('#placeImage2').attr('src', 'images/관악구/맛집/모리 돈부리/1.jpg');
-        $('#placeImage3').attr('src', 'images/관악구/맛집/육첩반상/1.jpg');
-        $('#placeImage4').attr('src', 'images/관악구/맛집/이에로 카레/1.jpg');
-        $('#placeImage5').attr('src', 'images/관악구/맛집/잇쇼쿠/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/관악구/맛집/맑은오후/3.jpg');
+        $('#placeImage2').attr('src', '구별사진/관악구/맛집/모리돈부리/3.jpg');
+        $('#placeImage3').attr('src', '구별사진/관악구/맛집/육첩반상/4.jpg');
+        $('#placeImage4').attr('src', '구별사진/관악구/맛집/이에로카레/3.jpg');
+        $('#placeImage5').attr('src', '구별사진/관악구/맛집/잇쇼쿠/4.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 6) {
-        $('#placeImage1').attr('src', 'images/광진구/맛집/미스터밥스/1.jpg');
-        $('#placeImage2').attr('src', 'images/광진구/맛집/송림식당/1.jpg');
-        $('#placeImage3').attr('src', 'images/광진구/맛집/싸다김밥/1.jpg');
-        $('#placeImage4').attr('src', 'images/광진구/맛집/옛날손칼국수/1.jpg');
-        $('#placeImage5').attr('src', 'images/광진구/맛집/옛집/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/광진구/맛집/미스터밥스/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/광진구/맛집/송림식당/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/광진구/맛집/싸다김밥/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/광진구/맛집/옛날손칼국수/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/광진구/맛집/옛집/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 7) {
-        $('#placeImage1').attr('src', 'images/구로구/맛집/국수회관/1.jpg');
-        $('#placeImage2').attr('src', 'images/구로구/맛집/동경주방/1.jpg');
-        $('#placeImage3').attr('src', 'images/구로구/맛집/신생루/1.jpg');
-        $('#placeImage4').attr('src', 'images/구로구/맛집/워너비박스/1.jpg');
-        $('#placeImage5').attr('src', 'images/구로구/맛집/찬장/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/구로구/맛집/국수회관/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/구로구/맛집/동경주방/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/구로구/맛집/신생루/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/구로구/맛집/워너비박스/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/구로구/맛집/찬장/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 8) {
-        $('#placeImage1').attr('src', 'images/금천구/맛집/BAP/1.jpg');
-        $('#placeImage2').attr('src', 'images/금천구/맛집/남원추어탕/1.jpg');
-        $('#placeImage3').attr('src', 'images/금천구/맛집/동흥관/1.jpg');
-        $('#placeImage4').attr('src', 'images/금천구/맛집/은행골/1.jpg');
-        $('#placeImage5').attr('src', 'images/금천구/맛집/포보스/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/금천구/맛집/BAP/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/금천구/맛집/남원추어탕/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/금천구/맛집/동흥관/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/금천구/맛집/은행골/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/금천구/맛집/포보스/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 9) {
-        $('#placeImage1').attr('src', 'images/노원구/맛집/노원돈부리/1.jpg');
-        $('#placeImage2').attr('src', 'images/노원구/맛집/오름/1.jpg');
-        $('#placeImage3').attr('src', 'images/노원구/맛집/제임스키친/1.jpg');
-        $('#placeImage4').attr('src', 'images/노원구/맛집/쭈꾸미달인/1.jpg');
-        $('#placeImage5').attr('src', 'images/노원구/맛집/핏짜굽는언니/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/노원구/맛집/노원돈부리/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/노원구/맛집/오름/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/노원구/맛집/제임스키친/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/노원구/맛집/쭈꾸미달인/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/노원구/맛집/핏짜굽는언니/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 10) {
-        $('#placeImage1').attr('src', 'images/도봉구/맛집/노말키친/1.jpg');
-        $('#placeImage2').attr('src', 'images/도봉구/맛집/동적불고기/1.jpg');
-        $('#placeImage3').attr('src', 'images/도봉구/맛집/로지라멘/1.jpg');
-        $('#placeImage4').attr('src', 'images/도봉구/맛집/스시제이/1.jpg');
-        $('#placeImage5').attr('src', 'images/도봉구/맛집/제이크더레스토랑/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/도봉구/맛집/노말키친/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/도봉구/맛집/동적불고기/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/도봉구/맛집/로지라멘/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/도봉구/맛집/스시제이/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/도봉구/맛집/제이크더레스토랑/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 11) {
-        $('#placeImage1').attr('src', 'images/동대문구/맛집/감초식당/1.jpg');
-        $('#placeImage2').attr('src', 'images/동대문구/맛집/돼지왕/1.jpg');
-        $('#placeImage3').attr('src', 'images/동대문구/맛집/바바인디안레스토랑/1.jpg');
-        $('#placeImage4').attr('src', 'images/동대문구/맛집/와라비키친/1.jpg');
-        $('#placeImage5').attr('src', 'images/동대문구/맛집/치보/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/동대문구/맛집/감초식당/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/동대문구/맛집/돼지왕/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/동대문구/맛집/와라비키친/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/동대문구/맛집/치보/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/동대문구/맛집/특별식당/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 12) {
-        $('#placeImage1').attr('src', 'images/동작구/맛집/부리또리/1.jpg');
-        $('#placeImage2').attr('src', 'images/동작구/맛집/부타리안/1.jpg');
-        $('#placeImage3').attr('src', 'images/동작구/맛집/선샤브향/1.jpg');
-        $('#placeImage4').attr('src', 'images/동작구/맛집/이든돈카츠/1.jpg');
-        $('#placeImage5').attr('src', 'images/동작구/맛집/철판목장/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/동작구/맛집/부리또리/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/동작구/맛집/부타리안/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/동작구/맛집/선샤브향/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/동작구/맛집/이든돈카츠/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/동작구/맛집/철판목장/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 13) {
-        $('#placeImage1').attr('src', 'images/마포구/맛집/거기서 거기더라/1.jpg');
-        $('#placeImage2').attr('src', 'images/마포구/맛집/기린입니다/3.jpg');
-        $('#placeImage3').attr('src', 'images/마포구/맛집/라몽림/3.jpg');
-        $('#placeImage4').attr('src', 'images/마포구/맛집/옥동식/1.jpg');
-        $('#placeImage5').attr('src', 'images/마포구/맛집/원기정/1.jpg');
-        $('#placeImage6').attr('src', 'images/마포구/맛집/하카타 분코/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/마포구/맛집/거기서거기더라/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/마포구/맛집/기린입니다/4.jpg');
+        $('#placeImage3').attr('src', '구별사진/마포구/맛집/라몽림/3.jpg');
+        $('#placeImage4').attr('src', '구별사진/마포구/맛집/옥동식/2.jpg');
+        $('#placeImage5').attr('src', '구별사진/마포구/맛집/원기정/1.jpg');
+        $('#placeImage6').attr('src', '구별사진/마포구/맛집/하카타분코/1.jpg');
         document.getElementById("placeName6").innerHTML = obj.district[district - 1].Name6;
       } else if (district == 14) {
-        $('#placeImage1').attr('src', 'images/서대문구/맛집/방콕익스프레스/1.jpg');
-        $('#placeImage2').attr('src', 'images/서대문구/맛집/버거펠라즈/1.jpg');
-        $('#placeImage3').attr('src', 'images/서대문구/맛집/소오/1.jpg');
-        $('#placeImage4').attr('src', 'images/서대문구/맛집/엉클스/1.jpg');
-        $('#placeImage5').attr('src', 'images/서대문구/맛집/포포나무/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/서대문구/맛집/방콕익스프레스/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/서대문구/맛집/버거펠라즈/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/서대문구/맛집/소오/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/서대문구/맛집/엉클스/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/서대문구/맛집/포포나무/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 15) {
-        $('#placeImage1').attr('src', 'images/서초구/맛집/도셰프/1.jpg');
-        $('#placeImage2').attr('src', 'images/서초구/맛집/반포치킨/1.jpg');
-        $('#placeImage3').attr('src', 'images/서초구/맛집/베테랑칼국수/1.jpg');
-        $('#placeImage4').attr('src', 'images/서초구/맛집/브루클린더버거조인트/1.jpg');
-        $('#placeImage5').attr('src', 'images/서초구/맛집/애플하우스/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/서초구/맛집/도셰프/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/서초구/맛집/반포치킨/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/서초구/맛집/베테랑칼국수/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/서초구/맛집/브루클린더버거조인트/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/서초구/맛집/애플하우스/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 16) {
-        $('#placeImage1').attr('src', 'images/성동구/맛집/성화생라멘/1.jpg');
-        $('#placeImage2').attr('src', 'images/성동구/맛집/스시메이/1.jpg');
-        $('#placeImage3').attr('src', 'images/성동구/맛집/장미식탁/1.jpg');
-        $('#placeImage4').attr('src', 'images/성동구/맛집/할머니의 레시피/1.jpg');
-        $('#placeImage5').attr('src', 'images/성동구/맛집/훠궈하오/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/성동구/맛집/성화생라멘/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/성동구/맛집/스시메이/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/성동구/맛집/장미식탁/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/성동구/맛집/할머니의레시피/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/성동구/맛집/훠궈하오/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 17) {
-        $('#placeImage1').attr('src', 'images/성북구/맛집/45정/1.jpg');
-        $('#placeImage2').attr('src', 'images/성북구/맛집/buger park/1.jpg');
-        $('#placeImage3').attr('src', 'images/성북구/맛집/윤휘식당/1.jpg');
-        $('#placeImage4').attr('src', 'images/성북구/맛집/지구당/1.jpg');
-        $('#placeImage5').attr('src', 'images/성북구/맛집/튀군/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/성북구/맛집/45정/3.jpg');
+        $('#placeImage2').attr('src', '구별사진/성북구/맛집/burgerpark/3.jpg');
+        $('#placeImage3').attr('src', '구별사진/성북구/맛집/윤휘식당/2.jpg');
+        $('#placeImage4').attr('src', '구별사진/성북구/맛집/지구당/3.jpg');
+        $('#placeImage5').attr('src', '구별사진/성북구/맛집/튀군/3.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 18) {
-        $('#placeImage1').attr('src', 'images/송파구/맛집/수사/1.jpg');
-        $('#placeImage2').attr('src', 'images/송파구/맛집/유타로/1.jpg');
-        $('#placeImage3').attr('src', 'images/송파구/맛집/응그래식당/1.jpg');
-        $('#placeImage4').attr('src', 'images/송파구/맛집/정순함박/1.jpg');
-        $('#placeImage5').attr('src', 'images/송파구/맛집/포차이/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/송파구/맛집/수사/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/송파구/맛집/유타로/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/송파구/맛집/응그래식당/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/송파구/맛집/정순함박/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/송파구/맛집/포차이/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 19) {
-        $('#placeImage1').attr('src', 'images/양천구/맛집/목동해물칼국수/1.jpg');
-        $('#placeImage2').attr('src', 'images/양천구/맛집/이자와/1.jpg');
-        $('#placeImage3').attr('src', 'images/양천구/맛집/일상밥상/1.jpg');
-        $('#placeImage4').attr('src', 'images/양천구/맛집/주방샵/1.jpg');
-        $('#placeImage5').attr('src', 'images/양천구/맛집/호랑이카레/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/양천구/맛집/목동해물칼국수/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/양천구/맛집/이자와/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/양천구/맛집/일상밥상/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/양천구/맛집/주방샵/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/양천구/맛집/호랑이카레/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 20) {
-        $('#placeImage1').attr('src', 'images/영등포구/맛집/5코돈/1.jpg');
-        $('#placeImage2').attr('src', 'images/영등포구/맛집/남다른감자탕/1.jpg');
-        $('#placeImage3').attr('src', 'images/영등포구/맛집/스트릿/1.jpg');
-        $('#placeImage4').attr('src', 'images/영등포구/맛집/헝그리타이거/1.jpg');
-        $('#placeImage5').attr('src', 'images/영등포구/맛집/혼밥대장/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/영등포구/맛집/5코돈/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/영등포구/맛집/남다른감자탕/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/영등포구/맛집/스트릿/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/영등포구/맛집/헝그리타이거/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/영등포구/맛집/혼밥대장/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 21) {
-        $('#placeImage1').attr('src', 'images/용산구/맛집/마요식당/1.jpg');
-        $('#placeImage2').attr('src', 'images/용산구/맛집/써니키친/1.jpg');
-        $('#placeImage3').attr('src', 'images/용산구/맛집/은밀한 밥상/1.jpg');
-        $('#placeImage4').attr('src', 'images/용산구/맛집/이태원더버거/1.jpg');
-        $('#placeImage5').attr('src', 'images/용산구/맛집/혼고/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/용산구/맛집/마요식당/3.jpg');
+        $('#placeImage2').attr('src', '구별사진/용산구/맛집/써니키친/3.jpg');
+        $('#placeImage3').attr('src', '구별사진/용산구/맛집/은밀한밥상/3.jpg');
+        $('#placeImage4').attr('src', '구별사진/용산구/맛집/이태원더버거/4.jpg');
+        $('#placeImage5').attr('src', '구별사진/용산구/맛집/혼고/4.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 22) {
-        $('#placeImage1').attr('src', 'images/은평구/맛집/꿀백/1.jpg');
-        $('#placeImage2').attr('src', 'images/은평구/맛집/라쿠/1.jpg');
-        $('#placeImage3').attr('src', 'images/은평구/맛집/멘야다이고미/1.jpg');
-        $('#placeImage4').attr('src', 'images/은평구/맛집/이찌방규/1.jpg');
-        $('#placeImage5').attr('src', 'images/은평구/맛집/파파스테이크/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/은평구/맛집/꿀백/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/은평구/맛집/라쿠/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/은평구/맛집/멘야다이고미/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/은평구/맛집/이찌방규/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/은평구/맛집/파파스테이크/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 23) {
-        $('#placeImage1').attr('src', 'images/종로구/맛집/미분당/1.jpg');
-        $('#placeImage2').attr('src', 'images/종로구/맛집/민나노키친/1.jpg');
-        $('#placeImage3').attr('src', 'images/종로구/맛집/세이순/1.jpg');
-        $('#placeImage4').attr('src', 'images/종로구/맛집/시래꽃/1.jpg');
-        $('#placeImage5').attr('src', 'images/종로구/맛집/토끼밥/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/종로구/맛집/미분당/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/종로구/맛집/민나노키친/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/종로구/맛집/세이순/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/종로구/맛집/시래꽃/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/종로구/맛집/토끼밥/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 24) {
-        $('#placeImage1').attr('src', 'images/중구/맛집/돈돈정/1.jpg');
-        $('#placeImage2').attr('src', 'images/중구/맛집/분분/1.jpg');
-        $('#placeImage3').attr('src', 'images/중구/맛집/아비꼬/1.jpg');
-        $('#placeImage4').attr('src', 'images/중구/맛집/패티패티/1.jpg');
-        $('#placeImage5').attr('src', 'images/중구/맛집/평양면옥/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/중구/맛집/돈돈정/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/중구/맛집/분분/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/중구/맛집/아비꼬/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/중구/맛집/패티패티/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/중구/맛집/평양면옥/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 25) {
-        $('#placeImage1').attr('src', 'images/중랑구/맛집/고모리쌈밥정식/1.jpg');
-        $('#placeImage2').attr('src', 'images/중랑구/맛집/꿀삼겹/1.jpg');
-        $('#placeImage3').attr('src', 'images/중랑구/맛집/빽가네/1.jpg');
-        $('#placeImage4').attr('src', 'images/중랑구/맛집/연스시/1.jpg');
-        $('#placeImage5').attr('src', 'images/중랑구/맛집/한참치/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/중랑구/맛집/고모리쌈밥정식/1.jpg');
+        $('#placeImage2').attr('src', '구별사진/중랑구/맛집/꿀삼겹/1.jpg');
+        $('#placeImage3').attr('src', '구별사진/중랑구/맛집/빽가네/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/중랑구/맛집/연스시/1.jpg');
+        $('#placeImage5').attr('src', '구별사진/중랑구/맛집/한참치/1.jpg');
         $('#placeImage6').css('display', 'none');
       }
 
@@ -307,16 +316,19 @@
       document.getElementById("placeName5").innerHTML = obj.district[district - 1].Name5;
     });
   </script>
+  <script>
+    //자세한 설명 페이지로 넘길 때 코드가 필요한데 구 번호 + 맛집코드 + index 자리 숫자
+    function setValue(index) {
+      var dis = localStorage.getItem("district");
+      localStorage.setItem("explain", dis + "2" + index); //맛집 코드는 :2
+      read(dis + "2" + index); //클릭 시 Databasef를 읽어 데이터 값을 storage에 일시 저장한다.
+    }
+  </script>
 </head>
 
 <body>
   <!-- 1. 헤더 -->
   <header id="header">
-    <form class="inputForm">
-      <input type="text" value="아이디" />
-      <input type="password" />
-      <input type="submit" value="로그인" />
-    </form>
     <a href="main.html"><img src="logo_wigo.png"  class="firstImage"/></a>
     <img src="logo_whereigo.png" class="secondImage" />
   </header>
@@ -340,62 +352,50 @@
 
   <!-- 3. 세션 -->
   <section class="section">
-    <a href="#">
-      <div id="place1">
-        <img id="placeImage1" /><br/><br/>
-        <h4 id="placeName1" class="star"> 둥산둥 </h4>
-        <img src="empty.png" id="starimage" class="star"></img>
-        <p class="star" id="evaluate">0.0</p>
+    <a href="information.html" onclick="setValue(1)">
+      <div id="place1" class="place">
+        <img id="placeImage1" src="http://placehold.it/360x240" /><br/><br/>
+        <h4 id="placeName1"> 둥산둥 </h4>
         <br/><br/><br/><br/>
       </div>
     </a>
 
-    <a href="#">
-      <div id="place2">
-        <img id="placeImage2" /><br/><br/>
-        <h4 id="placeName2" class="star"> 둥산둥 </h4>
-        <img src="fullStar.png" id="starimage" class="star"></img>
-        <p class="star" id="evaluate">4.2</p>
+    <a href="information.html" onclick="setValue(2)">
+      <div id="place2" class="place">
+        <img id="placeImage2" src="http://placehold.it/360x240" /><br/><br/>
+        <h4 id="placeName2"> 둥산둥 </h4>
         <br/><br/><br/><br/>
       </div>
     </a>
 
-    <a href="#">
-      <div id="place3">
-        <img id="placeImage3" /><br/><br/>
-        <h4 id="placeName3" class="star"> 둥산둥 </h4>
-        <img src="empty.png" id="starimage" class="star"></img>
-        <p class="star" id="evaluate">0.0</p>
+    <a href="information.html" onclick="setValue(3)">
+      <div id="place3" class="place">
+        <img id="placeImage3" src="http://placehold.it/360x240" /><br/><br/>
+        <h4 id="placeName3"> 둥산둥 </h4>
         <br/><br/><br/><br/>
       </div>
     </a>
 
-    <a href="#">
-      <div id="place4">
-        <img id="placeImage4" /><br/><br/>
-        <h4 id="placeName4" class="star"> 둥산둥 </h4>
-        <img src="fullStar.png" id="starimage" class="star"></img>
-        <p class="star" id="evaluate">4.0</p>
+    <a href="information.html" onclick="setValue(4)">
+      <div id="place4" class="place">
+        <img id="placeImage4" src="http://placehold.it/360x240" /><br/><br/>
+        <h4 id="placeName4"> 둥산둥 </h4>
         <br/><br/><br/><br/>
       </div>
     </a>
 
-    <a href="#">
-      <div id="place5">
+    <a href="information.html" onclick="setValue(5)">
+      <div id="place5" class="place">
         <img id="placeImage5" /><br/><br/>
-        <h4 id="placeName5" class="star"> 둥산둥 </h4>
-        <img src="empty.png" id="starimage" class="star"></img>
-        <p class="star" id="evaluate">0.0</p>
+        <h4 id="placeName5"> 둥산둥 </h4>
         <br/><br/><br/><br/>
       </div>
     </a>
 
-    <a href="#">
-      <div id="place6">
+    <a href="information.html" onclick="setValue(6)">
+      <div id="place6" class="place">
         <img id="placeImage6" /><br/><br/>
-        <h4 id="placeName6" class="star"> 둥산둥 </h4>
-        <img src="empty.png" id="starimage" class="star"></img>
-        <p class="star" id="evaluate">0.0</p>
+        <h4 id="placeName6"></h4>
         <br/><br/><br/><br/>
       </div>
     </a>
@@ -403,7 +403,26 @@
   </section>
   <!-- 4. 바닥글 -->
   <footer>
-  </footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+      <h2>WIGO</h2>
+      <p>Are you worried about where to go alone?
+      You can find a wide range of restaurants, cafes, and other places on the wigo site.</p>
+
+      </div>
+      <div class="col-md-2">
+
+      </div>
+      <div class="col-md">
+        <h5><strong>Contact Info</strong></h5>
+        <p><strong>Address:</strong> Jungdong-ro 209 Sejong University, Gwangjin-gu, Seoul <!-- Random Adress --></p>
+        <p><strong>Email:</strong> email@wigo.com</p>
+        <p><strong>Tel.:</strong> (010) 1234 5678</p>
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
 
 </html>

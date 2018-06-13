@@ -1,100 +1,146 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="headerStyle.css" />
-    <meta charset="utf-8">
+<html lang="en" dir="ltr">
 
-    <!--jquery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery.min.js">
-    </script>
-    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-<script>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script>
 
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDb7Y0vXrXNvL3Y97gxG0yefK3QScRq1QU",
-    authDomain: "wigotest-231d2.firebaseapp.com",
-    databaseURL: "https://wigotest-231d2.firebaseio.com",
-    projectId: "wigotest-231d2",
-    storageBucket: "wigotest-231d2.appspot.com",
-    messagingSenderId: "352491168261"
-  };
-  firebase.initializeApp(config);
-  var provider = new firebase.auth.GoogleAuthProvider();
+    //prefixes of implementation that we want to test
+    window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 
-// 인증하기
-firebase.auth().signInWithPopup(provider).then(function(result) {
-	// This gives you a Google Access Token. You can use it to access the Google API.
-	var token = result.credential.accessToken;
-	// The signed-in user info.
-	var user = result.user;
+    //prefixes of window.IDB objects
+    window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange
 
-	console.log(user)		// 인증 후 어떤 데이터를 받아오는지 확인해보기 위함.
-// ...
-}).catch(function(error) {
-	// Handle Errors here.
-	var errorCode = error.code;
-	var errorMessage = error.message;
-	// The email of the user's account used.
-	var email = error.email;
-	// The firebase.auth.AuthCredential type that was used.
-	var credential = error.credential;
-	// ...
-});
-</script>
-    <title></title>
-  </head>
-  <body>
-    <header id="header">
-            <form class="inputForm">
-              <input type="text" value="아이디" />
-              <input type="password" />
-              <input type="submit" value="로그인"/>
-            </form>
-          <a href="#"><img src="logo1.png"  class="firstImage"/></a>
-          <img src="logo2.png"  class="secondImage"/>
-    </header>
+    if (!window.indexedDB) {
+      window.alert("Your browser doesn't support a stable version of IndexedDB.")
+    }
+
+    const customerData = [{
+        id: "00-01",
+        name: "Bill",
+        age: 35,
+        email: "bill@company.com"
+      },
+      {
+        id: "00-02",
+        name: "Donna",
+        age: 32,
+        email: "donna@home.org"
+      }
+    ];
 
 
-    <nav>
-    </nav>
-  <div id="content">
+    var db;
+    var request = window.indexedDB.open("newDatabase", 1);
 
-    <section id="main-section">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </section>
-    <aside id="main-aside">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </aside>
-  </div>
-  <footer></footer>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</hr>
+    request.onerror = function(event) {
+      console.log("error: ");
+    };
 
+    request.onsuccess = function(event) {
+      db = request.result;
+      console.log("success: " + db);
+    };
 
+    request.onupgradeneeded = function(event) {
+      var db = event.target.result;
+      var objectStore = db.createObjectStore("customers", {
+        keyPath: "id"
+      });
+      for (var i in customerData) {
+        objectStore.add(customerData[i]);
+      }
+    }
 
+    function read(index) {
+      var transaction = db.transaction(["customers"]);
+      var objectStore = transaction.objectStore("customers");
+      var request = objectStore.get(index);
+      request.onerror = function(event) {
+        alert("Unable to retrieve daa from database!");
+      };
+      request.onsuccess = function(event) {
+        // Do something with the request.result!
+        if (request.result) {
+          alert("Name: " + request.result.name + ", Age: " + request.result.age + ", Email: " + request.result.email);
+        } else {
+          alert("Kenny couldn't be found in your database!");
+        }
+      };
+    }
 
-</hr>
+    function readAll() {
+      var objectStore = db.transaction("customers").objectStore("customers");
+      var count = 0;
+      objectStore.openCursor().onsuccess = function(event) {
+        var cursor = event.target.result;
 
-<!-- 라이브리 시티 설치 코드 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjg2Mi8xMzM5OA==">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
+        if (cursor) {
+          alert("Name for id " + cursor.key + " is " + cursor.value.name + ", Age: " + cursor.value.age + ", Email: " + cursor.value.email);
+          if(count == 0){
+            alert("hi");
+          }
+          count = count + 1;
+          cursor.continue();
+        } else {
+          alert("No more entries!");
+        }
+      };
+    }
 
-       if (typeof LivereTower === 'function') { return; }
+    function add(index) {
+      var request = db.transaction(["customers"], "readwrite")
+        .objectStore("customers")
+        .add({
+          id: "00-03",
+          name: "Kenny",
+          age: index,
+          email: "kenny@planet.org"
+        });
 
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
+      request.onsuccess = function(event) {
+        alert("it has been added to your database.");
+      };
 
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> 라이브리 댓글 작성을 위해 JavaScript를 활성화 해주세요</noscript>
-</div>
-<!-- 시티 설치 코드 끝 -->
+      request.onerror = function(event) {
+        alert("Unable to add data\r\nit is aready exist in your database! ");
+      }
 
+    }
 
-  </body>
+    function remove() {
+
+      var request = db.transaction(["customers"], "readwrite")
+        .objectStore("customers")
+        .delete("00-03");
+      request.onsuccess = function(event) {
+        alert("entry has been removed from your database.");
+      };
+    }
+    function etc(){
+      var str = localStorage.getItem("starScore");
+      alert(str);
+      add(str);
+    }
+
+  </script>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    readAll();
+  });
+  </script>
+</head>
+
+<body>
+  <button onclick="read('00-03')">Read single data from indexedDb</button>
+  <button onclick="readAll()">Read all data from indexedDb</button>
+  <button onclick="etc()">Add data to indexedDb</button>
+  <button onclick="remove()">Delete data from indexedDb</button>
+  <a href="test3.html">click</a>
+
+</body>
+
 </html>
