@@ -118,11 +118,11 @@
         $('#placeImage5').attr('src', '구별사진/관악구/맛집/잇쇼쿠/4.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 6) {
-        $('#placeImage1').attr('src', '구별사진/광진구/맛집/미스터밥스/1.jpg');
-        $('#placeImage2').attr('src', '구별사진/광진구/맛집/송림식당/1.jpg');
-        $('#placeImage3').attr('src', '구별사진/광진구/맛집/싸다김밥/1.jpg');
-        $('#placeImage4').attr('src', '구별사진/광진구/맛집/옛날손칼국수/1.jpg');
-        $('#placeImage5').attr('src', '구별사진/광진구/맛집/옛집/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/광진구/맛집/미스터밥스/3.jpg');
+        $('#placeImage2').attr('src', '구별사진/광진구/맛집/송림식당/3.jpg');
+        $('#placeImage3').attr('src', '구별사진/광진구/맛집/싸다김밥/3.jpg');
+        $('#placeImage4').attr('src', '구별사진/광진구/맛집/옛날손칼국수/3.jpg');
+        $('#placeImage5').attr('src', '구별사진/광진구/맛집/옛집/3.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 7) {
         $('#placeImage1').attr('src', '구별사진/구로구/맛집/국수회관/1.jpg');
@@ -245,18 +245,18 @@
         $('#placeImage5').attr('src', '구별사진/종로구/맛집/토끼밥/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 24) {
-        $('#placeImage1').attr('src', '구별사진/중구/맛집/돈돈정/1.jpg');
-        $('#placeImage2').attr('src', '구별사진/중구/맛집/분분/1.jpg');
-        $('#placeImage3').attr('src', '구별사진/중구/맛집/아비꼬/1.jpg');
-        $('#placeImage4').attr('src', '구별사진/중구/맛집/패티패티/1.jpg');
-        $('#placeImage5').attr('src', '구별사진/중구/맛집/평양면옥/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/중구/맛집/돈돈정/3.jpg');
+        $('#placeImage2').attr('src', '구별사진/중구/맛집/분분/3.jpg');
+        $('#placeImage3').attr('src', '구별사진/중구/맛집/아비꼬/3.jpg');
+        $('#placeImage4').attr('src', '구별사진/중구/맛집/패티패티/3.jpg');
+        $('#placeImage5').attr('src', '구별사진/중구/맛집/평양면옥/3.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 25) {
-        $('#placeImage1').attr('src', '구별사진/중랑구/맛집/고모리쌈밥정식/1.jpg');
-        $('#placeImage2').attr('src', '구별사진/중랑구/맛집/꿀삼겹/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/중랑구/맛집/고모리쌈밥정식/3.jpg');
+        $('#placeImage2').attr('src', '구별사진/중랑구/맛집/꿀삼겹/3.jpg');
         $('#placeImage3').attr('src', '구별사진/중랑구/맛집/빽가네/1.jpg');
-        $('#placeImage4').attr('src', '구별사진/중랑구/맛집/연스시/1.jpg');
-        $('#placeImage5').attr('src', '구별사진/중랑구/맛집/한참치/1.jpg');
+        $('#placeImage4').attr('src', '구별사진/중랑구/맛집/연스시/3.jpg');
+        $('#placeImage5').attr('src', '구별사진/중랑구/맛집/한참치/4.jpg');
         $('#placeImage6').css('display', 'none');
       }
 
@@ -322,6 +322,7 @@
       var dis = localStorage.getItem("district");
       localStorage.setItem("explain", dis + "2" + index); //맛집 코드는 :2
       read(dis + "2" + index); //클릭 시 Databasef를 읽어 데이터 값을 storage에 일시 저장한다.
+      window.open("store.html", "data", "option");
     }
   </script>
 </head>

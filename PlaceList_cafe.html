@@ -110,11 +110,11 @@
         $('#placeImage5').attr('src', '구별사진/관악구/카페/카페토스트/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 6) {
-        $('#placeImage1').attr('src', '구별사진/광진구/카페/도레도레/1.jpg');
-        $('#placeImage2').attr('src', '구별사진/광진구/카페/삼월의양/1.jpg');
-        $('#placeImage3').attr('src', '구별사진/광진구/카페/아쥐르/1.jpg');
-        $('#placeImage4').attr('src', '구별사진/광진구/카페/최가커피/1.jpg');
-        $('#placeImage5').attr('src', '구별사진/광진구/카페/커피더솔/1.jpg');
+        $('#placeImage1').attr('src', '구별사진/광진구/카페/도레도레/3.jpg');
+        $('#placeImage2').attr('src', '구별사진/광진구/카페/삼월의양/3.jpg');
+        $('#placeImage3').attr('src', '구별사진/광진구/카페/아쥐르/3.jpg');
+        $('#placeImage4').attr('src', '구별사진/광진구/카페/최가커피/3.jpg');
+        $('#placeImage5').attr('src', '구별사진/광진구/카페/커피더솔/3.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 7) {
         $('#placeImage1').attr('src', '구별사진/구로구/카페/LonelyAve/1.jpg');
@@ -315,6 +315,7 @@
     var dis = localStorage.getItem("district");
     localStorage.setItem("explain", dis+"3"+index); //카페 코드는 :3
     read(dis + "2" + index);
+    window.open("store.html", "data", "option");
   }
   </script>
 </head>

@@ -19,7 +19,7 @@
   </script>
   <script>
     var initMap;
-
+    function initMap() {};
     $(document).ready(function() {
 
       // Key for local storage, use to save and access.
@@ -297,11 +297,9 @@ var credential = error.credential;
   <aside id="main-aside">
     <div id="map"></div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjrZQG2mLgfJRTBddIiAo3mZVDK7RtF50&callback=initMap" async defer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtzF8dfk6Y4i_7etUv6ON521Xhn_CBOsw&callback=initMap" async defer>
       // Google Map
-      window.initMap = function() {
-        alert("ok");
-      }
+
     </script>
   </aside>
   <div class="star">
