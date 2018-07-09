@@ -14,23 +14,21 @@
 ### 메인페이지<br><br><br>
 
 ![메인페이지](https://blogfiles.pstatic.net/MjAxODA3MDlfMTk1/MDAxNTMxMTQ2MzAwNTcw.-6w5FrHctl5nff5nzi-NwGKGmkFFk2fEMrzSSdTDeoog.cmY6Id-eZJXV99Wyc0Sq0BLng7KSVJJ2ZgJIdTOd71Yg.PNG.qkrgy1206/MainPage.png)
-<br>
+
 ---
-<br>
+<br><br>
 ### 각 구마다 장소 리스트 페이지<br><br><br>
 
 ![리스트페이지](https://blogfiles.pstatic.net/MjAxODA3MDlfMzAw/MDAxNTMxMTQ2Mjk4MzE2.tdYGST8t_KJ8gZy08x-4ikI1m8eLWMkGsL33xI-TDZYg.C32_3L0oRmQH7biPwWNxwXXU9lTnlcu_pJmbDg7XPLog.PNG.qkrgy1206/CafeListPage_%EC%84%B1%EB%8F%99%EA%B5%AC.png)
 
-<br>
 ---
-<br>
+<br><br>
 ### 베스트 장소 추천 페이지<br><br><br>
 
 ![베스트페이지](https://blogfiles.pstatic.net/MjAxODA3MDlfODIg/MDAxNTMxMTQ2MzAwNTc1.USiHu07MGdIVelpblYLi8UbIegZufMSNMo4v9s21QUog.SLCVTJzCzkGtIcL8z2ufP4xq1F-c6bU1Q7g_vn5JuOkg.PNG.qkrgy1206/BestPlacePage.png)
 
-<br>
 ---
-<br>
+<br><br>
 ### 자세한 정보 확인 및 리뷰 페이지<br><br><br>
 
 ![리뷰및자세한정보페이지](https://blogfiles.pstatic.net/MjAxODA3MDlfMTky/MDAxNTMxMTQ2MzA2MjI0.839Q3h0V9gaE-tNGNuuRvMXgQuoDnRYcpu_SNw5hPjgg.NDfQ4AAZb5EIaDF87IjZYkIfTwE5MfSsvqxJgZuU68Ug.PNG.qkrgy1206/Infromation_%EC%84%B1%EB%B6%81%EA%B5%AC.png)
