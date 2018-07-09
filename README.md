@@ -2,8 +2,8 @@
 
 ## WIGO(Where I GO?)
 서울에서 혼자 갈 수 있는 장소 추천 사이트
-
-## -구현한 기능
+<br><br><br>
+## 구현한 기능
 . 데이터 처리(indexedDB, json data, local storage)<br>
 . 서울특별시 내 구마다 혼자서 갈 장소(맛집, 카페, 기타) 추천<br>
 . 별점 순으로 각 테마에 맞는 베스트 장소 출력<br>
