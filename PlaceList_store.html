@@ -5,10 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WIGO-혼자서 갈수있는 장소!</title>
-
+<!-- 리스트 페이지 초기화 하려고 빼둔 외부 스타일 시트 -->
   <link rel="stylesheet" href="listpagesReset.css" />
+  <!-- 헤더 외부 스타일 시트 -->
   <link rel="stylesheet" href="headerStyle.css" />
+
   <style>
+  /* 이미지와 텍스트 그룹화 해서 스타일 조정 */
     .place {
       float: left;
       padding: 0px 30px;
@@ -19,20 +22,7 @@
       height: 240px;
     }
 
-    #starimage {
-      float: right;
-      width: 5%;
-      height: 5%;
-    }
-
-    #evaluate {
-      float: right;
-      padding-right: 10px;
-    }
-
-    .star {
-      float: left;
-    }
+    /* 내비게이션 스타일 조정 부분 */
 
     .nav-div {
       width: 960px;
@@ -75,14 +65,21 @@
     }
 
   </style>
+  <!-- 맛집 용 json text 있는 자바 스크립 여기서 파싱해서 내부에 뿌려준다 -->
   <script src="storeData.js"></script>
+
+  <!-- indexeddb가 비동기 식이라 버튼 누를 때 해당 장소에 대한 별점 값을 읽어주고 information.html로 넘어가서 다시 한번 읽어주기 위한 외부 자바 스크립트로 뺴둔 method 갖고오기 -->
   <script src="DataBaseMethods.js"></script>
+
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script>
-    var district = localStorage.getItem("district");
-    var obj = JSON.parse(jsonText);
+    var district = localStorage.getItem("district"); //main에서 구 코드를 저장했기 때문에 storage에서 뺀다
+    var obj = JSON.parse(jsonText); //위 storeData.js에서 jsontext 파싱
+
     $(document).ready(function() {
       if (district == 1) {
+        //강남구 맛집 이미지 넣기
+
         $('#placeImage1').attr('src', '구별사진/강남구/맛집/꼭그닭/1.jpg');
         $('#placeImage2').attr('src', '구별사진/강남구/맛집/더커먼스/1.jpg');
         $('#placeImage3').attr('src', '구별사진/강남구/맛집/마녀주방/2.jpg');
@@ -90,6 +87,8 @@
         $('#placeImage5').attr('src', '구별사진/강남구/맛집/신사랑/3.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 2) {
+        //강동구 맛집 이미지 넣기
+
         $('#placeImage1').attr('src', '구별사진/강동구/맛집/일국화/4.jpg');
         $('#placeImage2').attr('src', '구별사진/강동구/맛집/참국/4.jpg');
         $('#placeImage3').attr('src', '구별사진/강동구/맛집/카레야상/4.jpg');
@@ -97,6 +96,8 @@
         $('#placeImage5').attr('src', '구별사진/강동구/맛집/하루식당/3.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 3) {
+        //강북구 맛집 이미지 넣기
+        
         $('#placeImage1').attr('src', '구별사진/강북구/맛집/상미식당/1.jpg');
         $('#placeImage2').attr('src', '구별사진/강북구/맛집/올뜨레마레/1.jpg');
         $('#placeImage3').attr('src', '구별사진/강북구/맛집/육수당/1.jpg');
@@ -260,7 +261,7 @@
         $('#placeImage6').css('display', 'none');
       }
 
-      // div 리스트 공간마다 마우스 이벤트 걸기
+      // div 리스트 공간마다 마우스 up 이벤트 걸기
       $("#place1").mouseup(function() {
         $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
       });
@@ -309,6 +310,7 @@
       });
 
       //문서 내 json 파일 파싱한거 뿌리기
+      //구 순서대로 넣었기 때문에 배열로 5번만 선언 가능
       document.getElementById("placeName1").innerHTML = obj.district[district - 1].Name1;
       document.getElementById("placeName2").innerHTML = obj.district[district - 1].Name2;
       document.getElementById("placeName3").innerHTML = obj.district[district - 1].Name3;
@@ -351,7 +353,7 @@
     </div>
   </nav>
 
-  <!-- 3. 세션 -->
+  <!-- 3. 이미자와 텍스트가 있는 세션 -->
   <section class="section">
     <a href="information.html" onclick="setValue(1)">
       <div id="place1" class="place">
@@ -402,6 +404,7 @@
     </a>
 
   </section>
+
   <!-- 4. 바닥글 -->
   <footer>
   <div class="container">

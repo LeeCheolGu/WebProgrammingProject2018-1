@@ -6,10 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WIGO-혼자서 갈수있는 장소!</title>
 
+  <!-- footer에 적용될 부트스트랩 -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- 리스트 페이지들 초기화 스타일시트를 외부로 빼서 썼다 -->
   <link rel="stylesheet" href="listpagesReset.css" />
+  <!-- 헤더 외부일 시트 -->
   <link rel="stylesheet" href="headerStyle.css" />
+  <!-- 내부 스타일 시트 -->
   <style>
+  /* 주제 타이틀 바 스타일 조정 */
     #titleDiv {
       background-color: rgb(247, 247, 247);
       text-align: center;
@@ -22,6 +27,7 @@
       font-size: 160%;
     }
 
+/* 사진과 별점, 순위, 별점 사진 스타일 조정 */
     .displayScore {
       float: right;
       margin-top: 30px;
@@ -52,6 +58,7 @@
       float: right;
     }
 
+/* footer 부분 내부 스타일 조정 */
     footer {
       background-color: #eee;
       padding: 25px;
@@ -68,6 +75,8 @@
   </style>
   <script>
     var best = localStorage.getItem("bestPlace");
+
+    //헤더 밑에 타이틀 부분 텍스트 바꿔주기
     window.onload = function() {
       var str;
       if(best ==1)
@@ -86,50 +95,167 @@
       }
       document.getElementById("title").innerHTML = str;
     }
+
+    // 해당 카테고리에 맞는 장소 코드를 information.html에서 뿌려주기 위해 storage에 저장하는 함수
     function setValue(num){
       if(best ==1){
+        //공원
         if(num==1){
           localStorage.setItem("explain", "613"); //어린이 대공원
         }
         else if(num==2){
-          localStorage.setItem("explain", "1314");
+          localStorage.setItem("explain", "1314"); //하늘공원
+        }
+        else if(num==3){
+          localStorage.setItem("explain", "2114"); //이촌 한강공원
+        }
+        else if(num==4){
+          localStorage.setItem("explain", "1212"); //보라매공원
+        }
+        else if(num==5){
+          localStorage.setItem("explain", "1912"); //서서울호수 공원
+        }
+        else if(num==6){
+          localStorage.setItem("explain", "712"); //궁동생태공원
+        }
+        else if(num==7){
+          localStorage.setItem("explain", "215"); //허브천문공원
+        }
+        else if(num==8){
+          localStorage.setItem("explain", "2115"); //효창공원
+        }
+        else if(num==9){
+          localStorage.setItem("explain", "212"); //광나루자전거공원
+        }
+        else if(num==10){
+          localStorage.setItem("explain", "412"); //궁산근린공원
         }
       }
-      
+      else if(best == 2){
+        //미술관
+        if(num==1){
+          localStorage.setItem("explain", "513"); //생활미술관
+        }
+        else if(num==2){
+          localStorage.setItem("explain", "1813"); //소마미술관
+        }
+        else if(num==3){
+          localStorage.setItem("explain", "2011"); //63아트
+        }
+        else if(num==4){
+          localStorage.setItem("explain", "2311"); //대림
+        }
+        else if(num==5){
+          localStorage.setItem("explain", "2413"); //서울시립
+        }
+      }
+      else if(best == 3){
+        //북카페와 만화방
+        if(num==1){
+          localStorage.setItem("explain", "614"); //코믹스팩토리
+        }
+        else if(num==2){
+          localStorage.setItem("explain", "312"); //꿈꾸는타자기
+        }
+        else if(num==3){
+          localStorage.setItem("explain", "2215"); //책보는 고릴라
+        }
+        else if(num==4){
+          localStorage.setItem("explain", "2113"); //블루스퀘어
+        }
+        else if(num==5){
+          localStorage.setItem("explain", "1211"); //마나보다
+        }
+      }
+      else if(best == 4){
+        //일식
+        if(num==1){
+          localStorage.setItem("explain", "423"); //산쪼메
+        }
+        else if(num==2){
+          localStorage.setItem("explain", "2421"); //돈돈정
+        }
+        else if(num==3){
+          localStorage.setItem("explain", "1326"); //하카타분코
+        }
+        else if(num==4){
+          localStorage.setItem("explain", "1822"); //유타로
+        }
+        else if(num==5){
+          localStorage.setItem("explain", "2021"); //5코돈
+        }
+        else if(num==6){
+          localStorage.setItem("explain", "722"); //동경주방
+        }
+        else if(num==7){
+          localStorage.setItem("explain", "1922"); //이자와
+        }
+      }
+      else if(best == 5){
+        //혼술
+        if(num==1){
+          localStorage.setItem("explain", "611"); //156
+        }
+        else if(num==2){
+          localStorage.setItem("explain", "1615"); //키친히마와리
+        }
+        else if(num==3){
+          localStorage.setItem("explain", "1312"); //디스틸
+        }
+        else if(num==4){
+          localStorage.setItem("explain", "511"); //링고
+        }
+        else if(num==5){
+          localStorage.setItem("explain", "715"); //혼술집려
+        }
+        else if(num==6){
+          localStorage.setItem("explain", "2211"); //must
+        }
+        else if(num==7){
+          localStorage.setItem("explain", "2212"); //zinc
+        }
+      }
+      else if(best == 6){
+        //카페
+        if(num==1){
+          localStorage.setItem("explain", "635"); //커피더솔
+        }
+        else if(num==2){
+          localStorage.setItem("explain", "1334"); //카페부부
+        }
+        else if(num==3){
+          localStorage.setItem("explain", "1231"); //메이카페
+        }
+        else if(num==4){
+          localStorage.setItem("explain", "1635"); //플레이그라운드
+        }
+        else if(num==5){
+          localStorage.setItem("explain", "1933"); //커피그레이드
+        }
+        else if(num==6){
+          localStorage.setItem("explain", "1433"); //카페블로그
+        }
+        else if(num==7){
+          localStorage.setItem("explain", "1832"); //어나더선데이
+        }
+        else if(num==8){
+          localStorage.setItem("explain", "531"); //cafeterr
+        }
+        else if(num==9){
+          localStorage.setItem("explain", "331"); //미즐
+        }
+        else if(num==10){
+          localStorage.setItem("explain", "2131"); //arvo
+        }
+      }
+
     };
   </script>
+  <!-- indexedDB connect와  method(읽기, 추가, 삭제) 쓰기 위한 외부 자바스크립트 -->
+    <script src="DataBaseMethods.js"></script>
   <script>
-    //prefixes of implementation that we want to test
-    window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
-
-    //prefixes of window.IDB objects
-    window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
-    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange
-
-    if (!window.indexedDB) {
-      window.alert("Your browser doesn't support a stable version of IndexedDB.")
-    }
-
-    var db;
-    var request = window.indexedDB.open("newDatabase", 1);
-
-    request.onerror = function(event) {
-      console.log("error: ");
-    };
-
-    request.onsuccess = function(event) {
-      db = request.result;
-      console.log("success: " + db);
-    };
-
-    request.onupgradeneeded = function(event) {
-      var db = event.target.result;
-      var objectStore = db.createObjectStore("scores", {
-        keyPath: "id"
-      });
-    }
-
-    function read(key, i) {
+  // 데베 속 별점 값 읽어서 뿌려주는 함수
+    function read_star(key, i) {
       var transaction = db.transaction(["scores"]);
       var objectStore = transaction.objectStore("scores");
       var request = objectStore.get(key);
@@ -141,22 +267,17 @@
         // Do something with the request.result!
         if (request.result) {
           var num = request.result.score;
-          //localStorage.setItem("starScore", num.toFixed(1));
-          //  alert("SCORE : " + request.result.score );
-
           document.getElementById(i).innerHTML = num.toFixed(1);
-          //alert(num.toFixed(1));
         } else {
-          //alert("Kenny couldn't be found in your database!");
         }
       };
     }
   </script>
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script>
-
-    //alert(best);
     $(document).ready(function() {
+
+      // 산책하기 좋은 공원일때
       if (best == 1) {
         var adae = localStorage.getItem("aScore");
         var haneul = localStorage.getItem("bScore");
@@ -164,77 +285,52 @@
         haneul *= 1;
         if(adae>haneul)
         {
+          // 어린이대공원 값이 크면 어린이대공원이 먼저 나오게
           $('#bestPlaceImg1').attr('src', "구별사진/광진구/기타/어린이대공원/2.jpg");
           $('#bestPlaceImg2').attr('src', "구별사진/마포구/기타/하늘공원/2.jpg");
-          $('#bestPlaceImg3').attr('src', "구별사진/용산구/기타/이촌한강공원/2.jpg");
-          $('#bestPlaceImg4').attr('src', "구별사진/동작구/기타/보라매공원/2.jpg");
-          $('#bestPlaceImg5').attr('src', "구별사진/양천구/기타/서서울호수공원/2.jpg");
-          $('#bestPlaceImg6').attr('src', "구별사진/구로구/기타/궁동생태공원/2.jpg");
-          $('#bestPlaceImg7').attr('src', "구별사진/강동구/기타/허브천문공원/2.jpg");
-          $('#bestPlaceImg8').attr('src', "구별사진/용산구/기타/효창공원/2.jpg");
-          $('#bestPlaceImg9').attr('src', "구별사진/강동구/기타/광나루자전거공원/2.jpg");
-          $('#bestPlaceImg10').attr('src', "구별사진/강서구/기타/궁산근린공원/2.jpg");
-          // var str = localStorage.getItem("starScore");
-          // $('#1').text(str);
-          read("613","1");
-          read("1314","2");
-          read("2114","3");
-          $('#4').text('3.8');
-          $('#5').text('3.7');
-          $('#6').text('3.6');
-          $('#7').text('3.5');
-          $('#8').text('3.4');
-          $('#9').text('3.2');
-          $('#10').text('3.0');
 
-          $('#bestPlaceName1').text('어린이대공원');
-          $('#bestPlaceName2').text('하늘공원');
-          $('#bestPlaceName3').text('이촌 한강공원');
-          $('#bestPlaceName4').text('보라매공원');
-          $('#bestPlaceName5').text('서서울호수공원');
-          $('#bestPlaceName6').text('궁동생태공원');
-          $('#bestPlaceName7').text('허브천문공원');
-          $('#bestPlaceName8').text('효창공원');
-          $('#bestPlaceName9').text('광나루자전거공원');
-          $('#bestPlaceName10').text('궁산근린공원');
+          read_star("613","1");
+          read_star("1314","2");
         }
         else {
+          // 만약 하늘공원이 별점 값이 더 크면 다르게 뿌려준다
           $('#bestPlaceImg1').attr('src', "구별사진/마포구/기타/하늘공원/2.jpg");
           $('#bestPlaceImg2').attr('src', "구별사진/광진구/기타/어린이대공원/2.jpg");
-          $('#bestPlaceImg3').attr('src', "구별사진/용산구/기타/이촌한강공원/2.jpg");
-          $('#bestPlaceImg4').attr('src', "구별사진/동작구/기타/보라매공원/2.jpg");
-          $('#bestPlaceImg5').attr('src', "구별사진/양천구/기타/서서울호수공원/2.jpg");
-          $('#bestPlaceImg6').attr('src', "구별사진/구로구/기타/궁동생태공원/2.jpg");
-          $('#bestPlaceImg7').attr('src', "구별사진/강동구/기타/허브천문공원/2.jpg");
-          $('#bestPlaceImg8').attr('src', "구별사진/용산구/기타/효창공원/2.jpg");
-          $('#bestPlaceImg9').attr('src', "구별사진/강동구/기타/광나루자전거공원/2.jpg");
-          $('#bestPlaceImg10').attr('src', "구별사진/강서구/기타/궁산근린공원/2.jpg");
-          // var str = localStorage.getItem("starScore");
-          // $('#1').text(str);
-          read("613","2");
-          read("1314","1");
-          read("2114","3");
-          $('#4').text('3.8');
-          $('#5').text('3.7');
-          $('#6').text('3.6');
-          $('#7').text('3.5');
-          $('#8').text('3.4');
-          $('#9').text('3.2');
-          $('#10').text('3.0');
 
-          $('#bestPlaceName1').text('하늘공원');
-          $('#bestPlaceName2').text('어린이대공원');
-          $('#bestPlaceName3').text('이촌 한강공원');
-          $('#bestPlaceName4').text('보라매공원');
-          $('#bestPlaceName5').text('서서울호수공원');
-          $('#bestPlaceName6').text('궁동생태공원');
-          $('#bestPlaceName7').text('허브천문공원');
-          $('#bestPlaceName8').text('효창공원');
-          $('#bestPlaceName9').text('광나루자전거공원');
-          $('#bestPlaceName10').text('궁산근린공원');
+          read_star("613","2");
+          read_star("1314","1");
         }
+        $('#bestPlaceImg3').attr('src', "구별사진/용산구/기타/이촌한강공원/2.jpg");
+        $('#bestPlaceImg4').attr('src', "구별사진/동작구/기타/보라매공원/2.jpg");
+        $('#bestPlaceImg5').attr('src', "구별사진/양천구/기타/서서울호수공원/2.jpg");
+        $('#bestPlaceImg6').attr('src', "구별사진/구로구/기타/궁동생태공원/2.jpg");
+        $('#bestPlaceImg7').attr('src', "구별사진/강동구/기타/허브천문공원/2.jpg");
+        $('#bestPlaceImg8').attr('src', "구별사진/용산구/기타/효창공원/2.jpg");
+        $('#bestPlaceImg9').attr('src', "구별사진/강동구/기타/광나루자전거공원/2.jpg");
+        $('#bestPlaceImg10').attr('src', "구별사진/강서구/기타/궁산근린공원/2.jpg");
 
-      } else if (best == 2) {
+        read_star("2114","3");
+        read_star("1212","4");
+        read_star("1912","5");
+        read_star("712","6");
+        read_star("215","7");
+        read_star("2215","8");
+        read_star("212","9");
+        read_star("412","10");
+
+        $('#bestPlaceName1').text('어린이대공원');
+        $('#bestPlaceName2').text('하늘공원');
+        $('#bestPlaceName3').text('이촌 한강공원');
+        $('#bestPlaceName4').text('보라매공원');
+        $('#bestPlaceName5').text('서서울호수공원');
+        $('#bestPlaceName6').text('궁동생태공원');
+        $('#bestPlaceName7').text('허브천문공원');
+        $('#bestPlaceName8').text('효창공원');
+        $('#bestPlaceName9').text('광나루자전거공원');
+        $('#bestPlaceName10').text('궁산근린공원');
+      }
+// 미술관 베스트 5곳
+      else if (best == 2) {
         $('#bestPlaceImg1').attr('src', "구별사진/관악구/기타/생활미술관/2.jpg");
         $('#bestPlaceImg2').attr('src', "구별사진/송파구/기타/소마미술관/2.jpg");
         $('#bestPlaceImg3').attr('src', "구별사진/영등포구/기타/63아트/2.jpg");
@@ -279,6 +375,9 @@
 
 
       } else if (best == 3) {
+
+        // 만화방 & 북카페 베스트 5곳
+
         $('#bestPlaceImg1').attr('src', "구별사진/광진구/기타/코믹스팩토리(만화방)/2.jpg");
         $('#bestPlaceImg2').attr('src', "구별사진/강북구/기타/꿈꾸는타자기(북카페)/3.jpg");
         $('#bestPlaceImg3').attr('src', "구별사진/은평구/기타/책보는고릴라/2.jpg");
@@ -321,6 +420,8 @@
         $('#9').css('display', 'none');
         $('#10').css('display', 'none');
       } else if (best == 4) {
+        // 일식 베스트 7곳
+
         $('#bestPlaceImg1').attr('src', "구별사진/강서구/맛집/산쪼메/2.jpg");
         $('#bestPlaceImg2').attr('src', "구별사진/중구/맛집/돈돈정/2.jpg");
         $('#bestPlaceImg3').attr('src', "구별사진/마포구/맛집/하카타분코/2.jpg");
@@ -361,6 +462,8 @@
         $('#9').css('display', 'none');
         $('#10').css('display', 'none');
       } else if (best == 5) {
+
+        // 술집 베스트 7곳
         $('#bestPlaceImg1').attr('src', "구별사진/광진구/기타/C156(혼술)/2.jpg");
         $('#bestPlaceImg2').attr('src', "구별사진/성동구/기타/키친히마와리/2.jpg");
         $('#bestPlaceImg3').attr('src', "구별사진/마포구/기타/디스틸/2.jpg");
@@ -400,6 +503,7 @@
         $('#9').css('display', 'none');
         $('#10').css('display', 'none');
       } else if (best == 6) {
+        // 카페 베스트 10곳
         $('#bestPlaceImg1').attr('src', "구별사진/광진구/카페/커피더솔/2.jpg");
         $('#bestPlaceImg2').attr('src', "구별사진/마포구/카페/카페부부/2.jpg");
         $('#bestPlaceImg3').attr('src', "구별사진/동작구/카페/메이카페/2.jpg");
@@ -444,14 +548,14 @@
     <a href="main.html"><img src="logo_wigo.png"  class="firstImage"/></a>
     <img src="logo_whereigo.png" class="secondImage" />
   </header>
-  <!-- 2. 세션 -->
+  <!-- 2. 주제 타이틀과 베스트 장소 리스트가 있는 section -->
   <section>
     <div id="titleDiv">
       <p id="title"> Best Place 5</p>
       <br/>
     </div>
     <br/><br/>
-    <a href="bestInformation.html" onclick="setValue(1)">
+    <a href="information.html" onclick="setValue(1)">
       <div id="bestPlace1">
         <img src="" id="bestPlaceImg1" />
         <h4 class="displayScore" id="1">4.3</h4>
@@ -462,7 +566,7 @@
     </a>
     <hr/><br/>
 
-    <a href="bestInformation.html" onclick="setValue(2)">
+    <a href="information.html" onclick="setValue(2)">
       <div id="bestPlace2">
         <img src="" id="bestPlaceImg2" />
         <h4 class="displayScore" id="2">4.0</h4>
@@ -556,6 +660,7 @@
     </a>
     <hr/><br/>
   </section>
+
   <!-- 3. 바닥글 -->
   <footer>
     <div class="container">

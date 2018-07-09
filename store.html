@@ -9,6 +9,7 @@
 <body>
 
 </body>
+<!-- 해당 가게에 대한 자세한 정보들 json 구조화로 storage에 저장하기 위한 html -->
 <script>
 var testObject =
 [
@@ -7217,6 +7218,7 @@ var testObject =
 
 
 var FILE_KEY = "data.json";
+//파일 키를 data.json이라 저장후 json 구조로 local storage에 저장
 window.localStorage.setItem(FILE_KEY, JSON.stringify(testObject));
 // Retrieve the object from storage
 // var retrievedObject = localStorage.getItem(FILE_KEY);

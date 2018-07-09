@@ -1,3 +1,5 @@
+/* 별점 주는 부분 외부 스타일 시트 */
+
 .star-input>.input,
 .star-input>.input>label:hover,
 .star-input>.input>input:focus+label,

@@ -5,16 +5,22 @@
   <title>WIGO-혼자서 갈수있는 장소!</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 헤더 외부 스타일 시트 -->
   <link rel="stylesheet" href="headerStyle.css">
+
+  <!-- 별점 주기 외부 스타일 시트 -->
   <link rel="stylesheet" href="starRating.css" />
-  <!-- <script src="https://www.gstatic.com/firebasejs/5.0.L4/firebase.js"></script> -->
+  <!-- jquery 사용 -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
   <script>
+  // json 텍스트 파싱하기 위해 html을 띄어줘야하는데 일일히 사용자가 띄우기 보다 팝업창을 사용해 뜨게 한다
     window.open("store.html", "data", "option");
     $(document).ready(function() {
       var storeId = localStorage.getItem("explain");
+      // 해당 가게 id로 DB 속 별점 값 읽어오기
       read(storeId);
-
     });
   </script>
   <script>
@@ -23,6 +29,7 @@
     $(document).ready(function() {
 
       // Key for local storage, use to save and access.
+      // 로컬에 있는 storage에서 data 뽑고
       var FILE_KEY = "data.json";
       var retrievedObject = localStorage.getItem(FILE_KEY);
       console.log('retrievedObject: ', JSON.parse(retrievedObject));
@@ -30,16 +37,17 @@
       var html = "";
       var image = "";
 
+      //해당 가게마다 코드를 정해놓은걸 storage에서 뽑아오기
       var storeId = localStorage.getItem("explain");
 
       storeId *= 1; //var 형식인 storeId 변수 숫자로 변환
       var id = storeId;
-      //url을 파싱해서 id 값만 추출
 
       $.each(DataJSON, function(index, entry) {
         if (id != entry.id)
           return true;
-
+          
+//json 내 정보를 불러와 데이터를 뿌린다.
         html += '<h2 class="stname">';
         html += entry.name;
         html += '</h2>';
@@ -72,6 +80,7 @@
           image += ' width="20%" height="295px"  />';
         });
 
+// 지도 불러오고 json text 내에 있는 위도,경도 불러와 지도에 마커 넣기
         initMap = function() {
           var myLatLng = {
             lat: entry.lat,
@@ -95,10 +104,10 @@
       $('#page-wrapper').html(html);
       $('.taste').html(image);
 
-
-      // $('#dictionary').html(html);
     });
   </script>
+
+  <!-- 별점 몇 점 줄 지 마우스로 mouse overing 하거나 클릭할 시의 이벤트 걸기 -->
   <script>
     $(document).ready(function() {
       var $star = $(".star-input"),
@@ -131,6 +140,8 @@
             $result.text($checked.next().text());
           }
         });
+
+        // "별점 주기" 버튼 누르면 발생하는 이벤트
       $("#input").click(function() {
         var $checked = $star.find(":checked");
         var str = localStorage.getItem("starScore");
@@ -146,50 +157,12 @@
       });
     });
   </script>
-
+<!-- indexedDB method(읽기, 추가, 삭제) 쓰기 위한 외부 자바스크립트 -->
   <script src="DataBaseMethods.js"></script>
-  <!--jquery-->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery.min.js">
- </script> -->
 
-  <!-- <script>
-
-// Initialize Firebase
-var config = {
- apiKey: "AIzaSyDb7Y0vXrXNvL3Y97gxG0yefK3QScRq1QU",
- authDomain: "wigotest-231d2.firebaseapp.com",
- databaseURL: "https://wigotest-231d2.firebaseio.com",
- projectId: "wigotest-231d2",
- storageBucket: "wigotest-231d2.appspot.com",
- messagingSenderId: "352491168261"
-};
-firebase.initializeApp(config);
-var provider = new firebase.auth.GoogleAuthProvider();
-
-// 인증하기
-firebase.auth().signInWithPopup(provider).then(function(result) {
-// This gives you a Google Access Token. You can use it to access the Google API.
-var token = result.credential.accessToken;
-// The signed-in user info.
-var user = result.user;
-
-console.log(user)      // 인증 후 어떤 데이터를 받아오는지 확인해보기 위함.
-// ...
-}).catch(function(error) {
-// Handle Errors here.
-var errorCode = error.code;
-var errorMessage = error.message;
-// The email of the user's account used.
-var email = error.email;
-// The firebase.auth.AuthCredential type that was used.
-var credential = error.credential;
-// ...
-});
-</script> -->
-  <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+  <!-- 내부 스타일 시트 -->
 <style>
+/* 별점 주는 부분 스타일 조정 */
   #input {
     margin-left: 20px;
   }
@@ -211,6 +184,7 @@ var credential = error.credential;
 
   }
 
+/* 이미지와 테이블 부분 스타일 적용 */
   .taste {
 
     padding-left: 5px;
@@ -226,6 +200,7 @@ var credential = error.credential;
     padding-top: 10px;
   }
 
+/* 헤더 빼고 내부 전체적인 스타일 조정 */
   #page-wrapper {
     float: left;
     position: relative;
@@ -257,19 +232,12 @@ var credential = error.credential;
     padding-left: 20px;
   }
 
+/* footer 스타일 조정 */
   footer {
     background-color: #eee;
     padding: 25px;
   }
 
-  ul,
-  li {
-    list-style-type: none;
-  }
-
-  .list {
-    margin-top: 15px;
-  }
 </style>
 <style>
   #map {
@@ -280,12 +248,15 @@ var credential = error.credential;
 </head>
 
 <body>
+  <!-- 1. 헤더 -->
   <header id="header">
     <a href="main.html"><img src="logo_wigo.png"  class="firstImage"/></a>
     <img src="logo_whereigo.png" class="secondImage" />
   </header>
   <br/>
   <br/>
+
+  <!-- 2. 이미지와 자세한 정보 테이블이 있는 섹션 -->
   <section>
     <article>
       <div class="taste"></div>
@@ -294,6 +265,8 @@ var credential = error.credential;
     <hr/>
     <div id="page-wrapper"></div>
   </section>
+
+  <!-- 3. 구글 Map과 해당 장소에 대한 위치 정보 마커로 찍는 aside -->
   <aside id="main-aside">
     <div id="map"></div>
 
@@ -302,6 +275,8 @@ var credential = error.credential;
 
     </script>
   </aside>
+
+  <!-- 4. 별점 주기 -->
   <div class="star">
     <br/><br/>
     <span class="questionScore">이곳 평점은?</span>
@@ -327,7 +302,7 @@ var credential = error.credential;
 
 
 
-  <!-- 라이브리 시티 설치 코드 -->
+  <!-- 5. 댓글 달기 -->
   <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjg2Mi8xMzM5OA==">
     <script type="text/javascript">
       (function(d, s) {
@@ -346,8 +321,8 @@ var credential = error.credential;
     </script>
     <noscript> 라이브리 댓글 작성을 위해 JavaScript를 활성화 해주세요</noscript>
   </div>
-  <!-- 시티 설치 코드 끝 -->
 
+<!-- 6. 푸터 -->
   <footer>
     <div class="container">
       <div class="row">

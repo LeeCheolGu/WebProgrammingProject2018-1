@@ -5,10 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WIGO-혼자서 갈수있는 장소!</title>
-
+  <!-- 리스트 페이지 초기화 하려고 빼둔 외부 스타일 시트 -->
   <link rel="stylesheet" href="listpagesReset.css" />
+
+  <!-- 헤더 외부 스타일 시트 -->
   <link rel="stylesheet" href="headerStyle.css" />
   <style>
+  /* 이미지와 텍스트 그룹화 해서 스타일 조정 */
     section div {
       float: left;
       padding: 0px 30px;
@@ -18,7 +21,7 @@
       width: 360px;
       height: 240px;
     }
-
+    /* 내비게이션 스타일 조정 부분 */
     .nav-div {
       width: 960px;
       margin: 0 auto;
@@ -64,15 +67,20 @@
     }
 
   </style>
+  <!-- 기타 용 json text 있는 자바 스크립 여기서 파싱해서 내부에 뿌려준다 -->
   <script src="etcData.js"></script>
+
+  <!-- indexeddb가 비동기 식이라 버튼 누를 때 해당 장소에 대한 별점 값을 읽어주고 information.html로 넘어가서 다시 한번 읽어주기 위한 외부 자바 스크립트로 뺴둔 method 갖고오기 -->
   <script src="DataBaseMethods.js"></script>
+
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script>
-    var district = localStorage.getItem("district");
-    var etcObj = JSON.parse(etcJsonText);
+    var district = localStorage.getItem("district"); //구에서 넘겨준 코드 storage에서 빼오기
+    var etcObj = JSON.parse(etcJsonText); //위에 etcData.js에서 jsontext 파싱하기
 
     $(document).ready(function() {
       if (district == 1) {
+        //강남구 기타
         $('#placeImage1').attr('src', '구별사진/강남구/기타/도산공원/1.jpg');
         $('#placeImage2').attr('src', '구별사진/강남구/기타/별마당도서관/1.jpg');
         $('#placeImage3').attr('src', '구별사진/강남구/기타/아쿠아리움/1.jpg');
@@ -81,6 +89,7 @@
         $('#placeImage6').css('display', 'none');
 
       } else if (district == 2) {
+        //강동구 기타 이미지 넣기
         $('#placeImage1').attr('src', '구별사진/강동구/기타/강풀만화거리/4.jpg');
         $('#placeImage2').attr('src', '구별사진/강동구/기타/광나루자전거공원/4.jpg');
         $('#placeImage3').attr('src', '구별사진/강동구/기타/광진교8번가/4.jpg');
@@ -89,6 +98,7 @@
         $('#placeImage6').css('display', 'none');
 
       } else if (district == 3) {
+
         $('#placeImage1').attr('src', '구별사진/강북구/기타/근현대사기념관/1.jpg');
         $('#placeImage2').attr('src', '구별사진/강북구/기타/꿈꾸는타자기(북카페)/1.jpg');
         $('#placeImage3').attr('src', '구별사진/강북구/기타/봉황각/1.jpg');
@@ -96,6 +106,7 @@
         $('#placeImage5').attr('src', '구별사진/강북구/기타/솔밭근린공원/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 4) {
+
         $('#placeImage1').attr('src', '구별사진/강서구/기타/개화산둘레길/1.jpg');
         $('#placeImage2').attr('src', '구별사진/강서구/기타/궁산근린공원/1.jpg');
         $('#placeImage3').attr('src', '구별사진/강서구/기타/백년의고독/1.jpg');
@@ -103,6 +114,7 @@
         $('#placeImage5').attr('src', '구별사진/강서구/기타/허준박물관/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 5) {
+
         $('#placeImage1').attr('src', '구별사진/관악구/기타/LINGO/1.jpg');
         $('#placeImage2').attr('src', '구별사진/관악구/기타/관악산둘레길/1.jpg');
         $('#placeImage3').attr('src', '구별사진/관악구/기타/생활미술관/1.jpg');
@@ -110,6 +122,7 @@
         $('#placeImage5').attr('src', '구별사진/관악구/기타/호림박물관/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 6) {
+
         $('#placeImage1').attr('src', '구별사진/광진구/기타/C156(혼술)/1.jpg');
         $('#placeImage2').attr('src', '구별사진/광진구/기타/뚝섬유원지/1.jpg');
         $('#placeImage3').attr('src', '구별사진/광진구/기타/어린이대공원/1.jpg');
@@ -117,6 +130,7 @@
         $('#placeImage5').attr('src', '구별사진/광진구/기타/히릿(애견카페)/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 7) {
+
         $('#placeImage1').attr('src', '구별사진/구로구/기타/2424시만화방/1.jpg');
         $('#placeImage2').attr('src', '구별사진/구로구/기타/궁동생태공원/1.jpg');
         $('#placeImage3').attr('src', '구별사진/구로구/기타/라꾸긴/1.jpg');
@@ -124,6 +138,7 @@
         $('#placeImage5').attr('src', '구별사진/구로구/기타/혼술집려/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 8) {
+
         $('#placeImage1').attr('src', '구별사진/금천구/기타/금천예술공장/1.jpg');
         $('#placeImage2').attr('src', '구별사진/금천구/기타/금천체육공원/1.jpg');
         $('#placeImage3').attr('src', '구별사진/금천구/기타/심야술집/1.jpg');
@@ -131,34 +146,43 @@
         $('#placeImage5').attr('src', '구별사진/금천구/기타/호암늘솔길/1.jpg');
         $('#placeImage6').css('display', 'none');
       } else if (district == 9) {
+
         $('#placeImage1').attr('src', '구별사진/노원구/기타/그린라이트볼링장/1.jpg');
         $('#placeImage2').attr('src', '구별사진/노원구/기타/다린갤러리/1.jpg');
         $('#placeImage3').attr('src', '구별사진/노원구/기타/더코드/1.jpg');
         $('#placeImage4').attr('src', './구별사진/노원구/기타/로빈애로우/3.jpg');
         $('#placeImage5').attr('src', '구별사진/노원구/기타/휴소이/1.jpg');
         $('#placeImage6').css('display', 'none');
+
       } else if (district == 10) {
+
         $('#placeImage1').attr('src', '구별사진/도봉구/기타/덕성여대/1.jpg');
         $('#placeImage2').attr('src', '구별사진/도봉구/기타/둘리뮤지엄/1.jpg');
         $('#placeImage3').attr('src', '구별사진/도봉구/기타/발바닥공원/1.jpg');
         $('#placeImage4').attr('src', '구별사진/도봉구/기타/벽화마을/1.jpg');
         $('#placeImage5').attr('src', '구별사진/도봉구/기타/서울창포원/1.jpg');
         $('#placeImage6').css('display', 'none');
+
       } else if (district == 11) {
+
         $('#placeImage1').attr('src', '구별사진/동대문구/기타/경희대/1.jpg');
         $('#placeImage2').attr('src', '구별사진/동대문구/기타/세종대왕기념관/1.jpg');
         $('#placeImage3').attr('src', '구별사진/동대문구/기타/영휘원/1.jpg');
         $('#placeImage4').attr('src', '구별사진/동대문구/기타/청춘1번가/1.jpg');
         $('#placeImage5').attr('src', '구별사진/동대문구/기타/홍릉수목원/1.jpg');
         $('#placeImage6').css('display', 'none');
+
       } else if (district == 12) {
+
         $('#placeImage1').attr('src', '구별사진/동작구/기타/마나보다/1.jpg');
         $('#placeImage2').attr('src', '구별사진/동작구/기타/보라매공원/1.jpg');
         $('#placeImage3').attr('src', '구별사진/동작구/기타/사육신공원/1.jpg');
         $('#placeImage4').attr('src', '구별사진/동작구/기타/수산시장/1.jpg');
         $('#placeImage5').attr('src', '구별사진/동작구/기타/효사정/1.jpg');
         $('#placeImage6').css('display', 'none');
+
       } else if (district == 13) {
+
         $('#placeImage1').attr('src', '구별사진/마포구/기타/경의선책거리/1.jpg');
         $('#placeImage2').attr('src', '구별사진/마포구/기타/디스틸/4.jpg');
         $('#placeImage3').attr('src', '구별사진/마포구/기타/상암DMC/3.jpg');
@@ -166,70 +190,90 @@
         $('#placeImage5').attr('src', '구별사진/마포구/기타/한국영화박물관/1.jpg');
         $('#placeImage6').attr('src', '구별사진/마포구/기타/허니홀/1.jpg');
         document.getElementById("placeName6").innerHTML = etcObj.district[district - 1].Name6;
+
       } else if (district == 14) {
+
         $('#placeImage1').attr('src', '구별사진/서대문구/기타/개미마을/1.jpg');
         $('#placeImage2').attr('src', '구별사진/서대문구/기타/독도체험관/1.jpg');
         $('#placeImage3').attr('src', '구별사진/서대문구/기타/독립문/1.jpg');
         $('#placeImage4').attr('src', '구별사진/서대문구/기타/서대문형무소역사관/1.jpg');
         $('#placeImage5').attr('src', '구별사진/서대문구/기타/안산도시자연공원/1.jpg');
         $('#placeImage6').css('display', 'none');
+
       } else if (district == 15) {
+
         $('#placeImage1').attr('src', '구별사진/서초구/기타/국립중앙도서관/1.jpg');
         $('#placeImage2').attr('src', '구별사진/서초구/기타/서래섬/1.jpg');
         $('#placeImage3').attr('src', '구별사진/서초구/기타/예술의전당/1.jpg');
         $('#placeImage4').attr('src', '구별사진/서초구/기타/지엔퍼퓸-방배/1.jpg');
         $('#placeImage5').attr('src', '구별사진/서초구/기타/키논/1.jpg');
         $('#placeImage6').css('display', 'none');
+
       } else if (district == 16) {
+
         $('#placeImage1').attr('src', '구별사진/성동구/기타/마블컬렉션 한양대 엔터식스/1.jpg');
         $('#placeImage2').attr('src', '구별사진/성동구/기타/서울숲/1.jpg');
         $('#placeImage3').attr('src', '구별사진/성동구/기타/운우/1.jpg');
         $('#placeImage4').attr('src', '구별사진/성동구/기타/응봉산/1.jpg');
         $('#placeImage5').attr('src', '구별사진/성동구/기타/키친 히마와리/1.jpg');
         $('#placeImage6').css('display', 'none');
+
       } else if (district == 17) {
+
         $('#placeImage1').attr('src', '구별사진/성북구/기타/딩구리/1.jpg');
         $('#placeImage2').attr('src', '구별사진/성북구/기타/소일/1.jpg');
         $('#placeImage3').attr('src', '구별사진/성북구/기타/최순우 옛집/1.jpg');
         $('#placeImage4').attr('src', '구별사진/성북구/기타/카페데코믹스/1.jpg');
         $('#placeImage5').attr('src', '구별사진/성북구/기타/혼술주점 혜화동/1.jpg');
         $('#placeImage6').css('display', 'none');
+
       } else if (district == 18) {
+
         $('#placeImage1').attr('src', '구별사진/송파구/기타/몽촌토성/1.jpg');
         $('#placeImage2').attr('src', '구별사진/송파구/기타/석촌호수/1.jpg');
         $('#placeImage3').attr('src', '구별사진/송파구/기타/소마미술관/1.jpg');
         $('#placeImage4').attr('src', '구별사진/송파구/기타/올림픽공원/1.jpg');
         $('#placeImage5').attr('src', '구별사진/송파구/기타/잠실한강공원/1.jpg');
         $('#placeImage6').css('display', 'none');
+
       } else if (district == 19) {
+
         $('#placeImage1').attr('src', '구별사진/양천구/기타/생명과학박물관/1.jpg');
         $('#placeImage2').attr('src', '구별사진/양천구/기타/서서울호수공원/1.jpg');
         $('#placeImage3').attr('src', '구별사진/양천구/기타/센터쯔/1.jpg');
         $('#placeImage4').attr('src', '구별사진/양천구/기타/척비어/1.jpg');
         $('#placeImage5').attr('src', '구별사진/양천구/기타/칸지/1.jpg');
         $('#placeImage6').css('display', 'none');
+
       } else if (district == 20) {
+
         $('#placeImage1').attr('src', '구별사진/영등포구/기타/63아트/1.jpg');
         $('#placeImage2').attr('src', '구별사진/영등포구/기타/더핸드/1.jpg');
         $('#placeImage3').attr('src', '구별사진/영등포구/기타/루다카야/1.jpg');
         $('#placeImage4').attr('src', '구별사진/영등포구/기타/스위트팩토리/1.jpg');
         $('#placeImage5').attr('src', '구별사진/영등포구/기타/엘지사이언스홀/1.jpg');
         $('#placeImage6').css('display', 'none');
+
       } else if (district == 21) {
+
         $('#placeImage1').attr('src', '구별사진/용산구/기타/남산와이너리/2.jpg');
         $('#placeImage2').attr('src', '구별사진/용산구/기타/디뮤지엄/2.jpg');
         $('#placeImage3').attr('src', '구별사진/용산구/기타/블루스퀘어/2.jpg');
         $('#placeImage4').attr('src', '구별사진/용산구/기타/이촌한강공원/2.jpg');
         $('#placeImage5').attr('src', '구별사진/용산구/기타/효창공원/2.jpg');
         $('#placeImage6').css('display', 'none');
+
       } else if (district == 22) {
+
         $('#placeImage1').attr('src', '구별사진/은평구/기타/MUST/1.jpg');
         $('#placeImage2').attr('src', '구별사진/은평구/기타/ZINC/1.jpg');
         $('#placeImage3').attr('src', '구별사진/은평구/기타/다문화박물관/1.jpg');
         $('#placeImage4').attr('src', '구별사진/은평구/기타/벌툰/1.jpg');
         $('#placeImage5').attr('src', '구별사진/은평구/기타/책보는고릴라/1.jpg');
         $('#placeImage6').css('display', 'none');
+
       } else if (district == 23) {
+
         $('#placeImage1').attr('src', '구별사진/종로구/기타/대림미술관/1.jpg');
         $('#placeImage2').attr('src', '구별사진/종로구/기타/대한민국역사박물관/1.jpg');
         $('#placeImage3').attr('src', '구별사진/종로구/기타/백남준기념관/1.jpg');
@@ -237,23 +281,28 @@
         $('#placeImage5').attr('src', '구별사진/종로구/기타/임시정부청사경교장/1.jpg');
         $('#placeImage6').attr('src', '구별사진/종로구/기타/청계천/1.jpg');
         document.getElementById("placeName6").innerHTML = etcObj.district[district - 1].Name6;
+
       } else if (district == 24) {
+
         $('#placeImage1').attr('src', '구별사진/중구/기타/남산/1.jpg');
         $('#placeImage2').attr('src', '구별사진/중구/기타/동대문디자인플라자(DDP)/1.jpg');
         $('#placeImage3').attr('src', '구별사진/중구/기타/서울시립미술관/1.jpg');
         $('#placeImage4').attr('src', '구별사진/중구/기타/숭례문/1.jpg');
         $('#placeImage5').attr('src', '구별사진/중구/기타/우표박물관/1.jpg');
         $('#placeImage6').css('display', 'none');
+
       } else if (district == 25) {
+
         $('#placeImage1').attr('src', '구별사진/중랑구/기타/봉화산옹기테마공원/1.jpg');
         $('#placeImage2').attr('src', '구별사진/중랑구/기타/셀프노트/1.jpg');
         $('#placeImage3').attr('src', '구별사진/중랑구/기타/용마랜드/1.jpg');
         $('#placeImage4').attr('src', '구별사진/중랑구/기타/용마폭포/1.jpg');
         $('#placeImage5').attr('src', '구별사진/중랑구/기타/장미축제/1.jpg');
         $('#placeImage6').css('display', 'none');
+        
       }
 
-      // div 리스트 공간마다 마우스 이벤트 걸기
+      // div 리스트 공간마다 마우스 up 이벤트 걸기
       $("#place1").mouseup(function() {
         $(this).css("backgroundColor", "rgba(0,0,0,0.1)");
       });
@@ -302,6 +351,7 @@
       });
 
       // 문서 내 가게 이름 json 파일에서 갖고와서 출력
+      //구 순서대로 넣었기 때문에 배열로 5번만 선언 가능
       document.getElementById("placeName1").innerHTML = etcObj.district[district - 1].Name1;
       document.getElementById("placeName2").innerHTML = etcObj.district[district - 1].Name2;
       document.getElementById("placeName3").innerHTML = etcObj.district[district - 1].Name3;
@@ -347,7 +397,7 @@
       </ul>
     </div>
   </nav>
-  <!-- 3. 세션 -->
+  <!-- 3.이미자와 텍스트가 있는 세션 -->
   <section class="section">
     <a href="information.html" onclick="setValue(1)">
       <div id="place1" class="place">

@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WIGO-혼자서 갈수있는 장소!</title>
+  <!-- 헤더 밑 전체적인 레이아웃 내부 스타일 시트 적용 -->
   <style>
     * {
       /* 전체 코드에 적용 */
@@ -27,10 +28,6 @@
 
     .image {
       float: left;
-    }
-
-    .inputform {
-      float: right;
     }
 
     .logo {
@@ -64,9 +61,13 @@
     }
   </style>
   </script>
+  <!-- main에서 DB 값 불러오기 -->
   <script src="starScoreDB.js"></script>
+  <!-- 푸터에 쓰이는 부터스트랩 -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- 이미지 슬라이드에 쓰이는 외부 스타일 시트 -->
   <link rel="stylesheet" href="main/lightslider/css/lightslider.css" />
+  <!-- 이미지 슬라이드 내부 스타일 시트 -->
   <style>
     ul {
       list-style: none outside none;
@@ -90,9 +91,10 @@
       width: 1200px;
     }
   </style>
+  <!-- jquery와 외부 javascript로 이미지 슬라이드 이벤트 작용 -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="main/lightslider/js/lightslider.js"></script>
-
+  <!-- 외부가 전체적으로 이미지 슬라이드가 되게 해주는 거면 사용자가 좌우 혹은 image를 선택했을 때 옵션을 정해 돌아가게 작동 -->
   <script>
     $(document).ready(function() {
       $("#content-slider").lightSlider({
@@ -113,7 +115,10 @@
       });
     });
   </script>
+
+  <!-- bestplace list 뿌릴 때 별점이 필요하여 db 용 커넥트를 쓰기위해 따로 모아둔 자바 스크립을 불러온다-->
   <script src="DataBaseMethods.js"></script>
+  <!-- 별점 순위 바꾸기 위해서 어린이대공원과 하늘공원 별점을 읽는 함수 -->
   <script>
   function read_adae() {
     var transaction = db.transaction(["scores"]);
@@ -124,12 +129,9 @@
     };
 
     request.onsuccess = function(event) {
-      // Do something with the request.result!
       if (request.result) {
         var num = request.result.score;
         localStorage.setItem("aScore", num.toFixed(1));
-        //alert("SCORE : " + request.result.score);
-        //alert(num.toFixed(1));
       } else {
         //alert("Kenny couldn't be found in your database!");
       }
@@ -144,23 +146,23 @@
     };
 
     request.onsuccess = function(event) {
-      // Do something with the request.result!
       if (request.result) {
         var num = request.result.score;
         localStorage.setItem("bScore", num.toFixed(1));
-        //alert("SCORE : " + request.result.score);
         document.getElementById("displayScore").innerHTML = num.toFixed(1);
-        //alert(num.toFixed(1));
       } else {
         //alert("Kenny couldn't be found in your database!");
       }
     };
   }
+
+  // main.html에서 placelist html 로 넘어갈 때 구마다 코드를 정해서 storage에 저장해 두는 함수
     function setChildValue(index) {
       localStorage.clear();
       localStorage.setItem("district", index);
     }
 
+    // 베스트 페이지로 넘어갈 때 코드를 저장하고, 산책하기 좋은 공원 베스트10이면 아까 만들어 둔 어린이대공원 하늘공원 별점 읽기 함수 실행
     function sendBestPlace(num) {
       localStorage.clear();
       localStorage.setItem("bestPlace", num);
@@ -174,21 +176,15 @@
 
 <body>
   <br/>
+  <!--1. 메인 헤더 -->
   <header>
-    <div class="inputform">
-      <!-- <form name="frmlogin">
-            <table>
-              <tr><td><input name="loginid" type="text" /></td>
-              <td><input name="loginpwd" type="password" /></td>
-              <td><img src="http://placehold.it/65x35/" onclick="chklogin"/></td></tr>
-            </table>
-        </form> -->
-    </div>
     <div class="logo">
       <img src="main/Logo.png" width="400" height="200" />
     </div>
   </header>
   <hr/>
+
+  <!--2. 지도 이미지와 해당 구마다 좌표값 구해 이벤트 건 섹션 -->
   <section>
     <div class="seoulmap">
       <img src="main/seoulmap.png" width="750" usemap="#seoulmap" name="mainimg" />
@@ -220,6 +216,8 @@
       </div>
     </section>
     <br><br><br><br><br>
+
+    <!-- 3. 이미지 슬라이드 -->
     <div class="demo">
       <div class="item">
           <ul id="content-slider" class="content-slider">
@@ -245,6 +243,8 @@
       </div>
   </div>
     <hr/>
+
+    <!-- 4. footer -->
     <footer>
     <div class="container">
       <div class="row">

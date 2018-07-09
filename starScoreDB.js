@@ -1,3 +1,5 @@
+// 메인에서 불러오는 DataBase 불러서 값 넣는 외부 java script
+
 //prefixes of implementation that we want to test
 window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 
@@ -9,6 +11,7 @@ if (!window.indexedDB) {
   window.alert("Your browser doesn't support a stable version of IndexedDB.")
 }
 
+// client side 용량이 한계가 있기 때문에 일부 정보들만 Data로 넣어뒀다.
 const allData = [{
     id: "212", //광나루자전거공원 - 강동구
     score: 3.2
@@ -73,6 +76,7 @@ request.onsuccess = function(event) {
   console.log("success: " + db);
 };
 
+//연결 후 데베에 값 넣기
 request.onupgradeneeded = function(event) {
   var db = event.target.result;
   var objectStore = db.createObjectStore("scores", {
