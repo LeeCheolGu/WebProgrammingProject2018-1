@@ -21,7 +21,7 @@
 
 ![리스트페이지](https://blogfiles.pstatic.net/MjAxODA3MDlfMzAw/MDAxNTMxMTQ2Mjk4MzE2.tdYGST8t_KJ8gZy08x-4ikI1m8eLWMkGsL33xI-TDZYg.C32_3L0oRmQH7biPwWNxwXXU9lTnlcu_pJmbDg7XPLog.PNG.qkrgy1206/CafeListPage_%EC%84%B1%EB%8F%99%EA%B5%AC.png)
 
----
+--- 
 <br><br>
 ### 베스트 장소 추천 페이지<br><br><br>
 
