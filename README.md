@@ -13,23 +13,23 @@
 <br><br>
 ### 메인페이지<br><br><br>
 
-![메인페이지](https://blogfiles.pstatic.net/MjAxODA3MDlfMTk1/MDAxNTMxMTQ2MzAwNTcw.-6w5FrHctl5nff5nzi-NwGKGmkFFk2fEMrzSSdTDeoog.cmY6Id-eZJXV99Wyc0Sq0BLng7KSVJJ2ZgJIdTOd71Yg.PNG.qkrgy1206/MainPage.png)
+![메인페이지](https://user-images.githubusercontent.com/26849292/47831343-209c1680-ddcb-11e8-823f-74a8b6357d08.png)
 
 ---
 <br><br>
 ### 각 구마다 장소 리스트 페이지<br><br><br>
 
-![리스트페이지](https://blogfiles.pstatic.net/MjAxODA3MDlfMzAw/MDAxNTMxMTQ2Mjk4MzE2.tdYGST8t_KJ8gZy08x-4ikI1m8eLWMkGsL33xI-TDZYg.C32_3L0oRmQH7biPwWNxwXXU9lTnlcu_pJmbDg7XPLog.PNG.qkrgy1206/CafeListPage_%EC%84%B1%EB%8F%99%EA%B5%AC.png)
+![리스트페이지]((https://user-images.githubusercontent.com/26849292/47831346-24c83400-ddcb-11e8-8ece-0928ae05508e.png)
 
 --- 
 <br><br>
 ### 베스트 장소 추천 페이지<br><br><br>
 
-![베스트페이지](https://user-images.githubusercontent.com/26849292/47831228-a5d2fb80-ddca-11e8-975b-da8e1af732d0.png)
+![베스트페이지](https://user-images.githubusercontent.com/26849292/47831338-1bd76280-ddcb-11e8-932a-59e1d9a0009b.png)
 
 ---
 <br><br>
 ### 자세한 정보 확인 및 리뷰 페이지<br><br><br>
 
-![리뷰및자세한정보페이지](https://blogfiles.pstatic.net/MjAxODA3MDlfMTky/MDAxNTMxMTQ2MzA2MjI0.839Q3h0V9gaE-tNGNuuRvMXgQuoDnRYcpu_SNw5hPjgg.NDfQ4AAZb5EIaDF87IjZYkIfTwE5MfSsvqxJgZuU68Ug.PNG.qkrgy1206/Infromation_%EC%84%B1%EB%B6%81%EA%B5%AC.png)
+![리뷰및자세한정보페이지](https://user-images.githubusercontent.com/26849292/47831339-1e39bc80-ddcb-11e8-9670-c444dd7b2aad.png)
 
