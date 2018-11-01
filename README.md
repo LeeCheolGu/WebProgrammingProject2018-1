@@ -19,7 +19,7 @@
 <br><br>
 ### 각 구마다 장소 리스트 페이지<br><br><br>
 
-![리스트페이지]((https://user-images.githubusercontent.com/26849292/47831346-24c83400-ddcb-11e8-8ece-0928ae05508e.png)
+![리스트페이지](https://user-images.githubusercontent.com/26849292/47831346-24c83400-ddcb-11e8-8ece-0928ae05508e.png)
 
 --- 
 <br><br>
