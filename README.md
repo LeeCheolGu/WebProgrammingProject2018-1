@@ -25,7 +25,7 @@
 <br><br>
 ### 베스트 장소 추천 페이지<br><br><br>
 
-![베스트페이지](https://blogfiles.pstatic.net/MjAxODA3MDlfODIg/MDAxNTMxMTQ2MzAwNTc1.USiHu07MGdIVelpblYLi8UbIegZufMSNMo4v9s21QUog.SLCVTJzCzkGtIcL8z2ufP4xq1F-c6bU1Q7g_vn5JuOkg.PNG.qkrgy1206/BestPlacePage.png)
+![베스트페이지](https://user-images.githubusercontent.com/26849292/47831228-a5d2fb80-ddca-11e8-975b-da8e1af732d0.png)
 
 ---
 <br><br>
